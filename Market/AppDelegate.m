@@ -8,11 +8,31 @@
 
 #import "AppDelegate.h"
 
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define Screen_height   [[UIScreen mainScreen] bounds].size.height
+#define Screen_width    [[UIScreen mainScreen] bounds].size.width
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    /*代码操作*/
+    if(iPhone5){
+        //        self.lunchViewControllerTM = [[LunchViewControllerTM alloc]initWithNibName:@"LunchViewControllerTM_4Inch" bundle:nil];
+        self.loginViewController = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+    }
+    else
+    {
+        //        self.lunchViewControllerTM = [[LunchViewControllerTM alloc]initWithNibName:@"LunchViewControllerTM" bundle:nil];
+        self.loginViewController = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+    }
+    //    self.window.rootViewController = self.lunchViewControllerTM;
+    self.window.rootViewController = self.loginViewController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							
