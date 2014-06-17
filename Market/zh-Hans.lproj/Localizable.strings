@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Market
+
+  Created by 夏 伟 on 14-6-10.
+  Copyright (c) 2014年 夏 伟. All rights reserved.
+*/
+"MAINPAGE" = "首页";
+"SEARCH" = "搜索";
+"USERCENTER" = "用户中心";
+"POST" = "帖子";
