@@ -91,9 +91,6 @@
 {
     [ShareSDK registerApp:@"2110f5e2aae0"];     //参数为ShareSDK官网中添加应用后得到的AppKey
     
-    //添加微信应用
-    [ShareSDK connectWeChatWithAppId:@"wx4868b35061f87885"        //此参数为申请的微信AppID
-                           wechatCls:[WXApi class]];
     //导入微信需要的外部库类型，如果不需要微信分享可以不调用此方法
     [ShareSDK importWeChatClass:[WXApi class]];
     
@@ -119,7 +116,7 @@
      连接微信应用以使用相关功能，此应用需要引用WeChatConnection.framework和微信官方SDK
      http://open.weixin.qq.com上注册应用，并将相关信息填写以下字段
      **/
-    [ShareSDK connectWeChatWithAppId:@"wx4868b35061f87885" wechatCls:[WXApi class]];
+    [ShareSDK connectWeChatWithAppId:@"wx15b55d0acc143e71" wechatCls:[WXApi class]];
     
     /**
      连接QQ应用以使用相关功能，此应用需要引用QQConnection.framework和QQApi.framework库

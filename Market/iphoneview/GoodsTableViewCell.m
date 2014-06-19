@@ -11,6 +11,8 @@
 @implementation GoodsTableViewCell
 @synthesize imageProduct;
 @synthesize linkBtn;
+@synthesize productDescriptionLabel;
+@synthesize productNameLabel;
 
 - (void)awakeFromNib
 {

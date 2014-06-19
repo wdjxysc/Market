@@ -8,7 +8,6 @@
 
 #import "ChangPasswordViewController.h"
 #import "LoginViewController.h"
-#import "CheckCodeViewController.h"
 #import "ServerConnect.h"
 #import "Regex.h"
 #import "SVProgressHUD.h"
@@ -109,10 +108,10 @@
     NSDictionary *dic = [ServerConnect getCheckCodeByEmail:emailstr];
     if([[dic valueForKey:@"success"] intValue] == 1)
     {
-        [[MySingleton sharedSingleton].nowuserinfo setObject:emailstr forKey:@"UserName"];
-        //跳转页面
-        CheckCodeViewController *checkCodeViewController = [[CheckCodeViewController alloc] initWithNibName:@"CheckCodeViewController" bundle:nil];
-        [self.navigationController pushViewController:checkCodeViewController animated:YES];
+//        [[MySingleton sharedSingleton].nowuserinfo setObject:emailstr forKey:@"UserName"];
+//        //跳转页面
+//        CheckCodeViewController *checkCodeViewController = [[CheckCodeViewController alloc] initWithNibName:@"CheckCodeViewController" bundle:nil];
+//        [self.navigationController pushViewController:checkCodeViewController animated:YES];
     }
     else
     {

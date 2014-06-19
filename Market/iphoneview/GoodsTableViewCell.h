@@ -12,8 +12,12 @@
 {
     IBOutlet UIImageView *imageProduct;
     IBOutlet UIButton *linkBtn;
+    IBOutlet UILabel *productDescriptionLabel;
+    IBOutlet UILabel *productNameLabel;
 }
 
 @property(retain,nonatomic)UIImageView *imageProduct;
 @property(retain,nonatomic)UIButton *linkBtn;
+@property(retain,nonatomic)UILabel *productDescriptionLabel;
+@property(retain,nonatomic)UILabel *productNameLabel;
 @end

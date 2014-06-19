@@ -7,6 +7,9 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>wb801516051</string>
+				<string>wb1937121821</string>
+				<string>QQ05FB8B52</string>
 				<string>Market</string>
 				<string>wx4868b35061f87885</string>
 			</array>

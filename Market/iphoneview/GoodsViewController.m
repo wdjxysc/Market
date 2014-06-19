@@ -307,6 +307,8 @@
     NSDictionary *rowData = [self.dataArray objectAtIndex:row];
     [cell.linkBtn addTarget:self action:@selector(linkBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
     [cell.linkBtn setTag:100+row];
+    cell.productDescriptionLabel.text = [rowData valueForKey:@"PRODUCT_DESCRIPTION"];
+    cell.productNameLabel.text = [rowData valueForKey:@"PRODUCT_NAME"];
     
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -315,8 +317,7 @@
         UIImage *image = [UIImage imageWithData:data];
         if (image) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [cell.linkBtn setBackgroundImage:image forState:UIControlStateNormal];
-                
+                [cell.imageProduct setImage:image];
             });
         }
         else {
@@ -341,7 +342,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat result = 230;
+    CGFloat result = 110;
     return result;
 }
 
@@ -349,7 +350,9 @@
 {
     ProductInfoViewController *productInfoViewController = [[ProductInfoViewController alloc] initWithNibName:@"ProductInfoViewController" bundle:nil];
     self.passValueDelegate = productInfoViewController;//委托给productInfoViewController去实现其中的方法
-    [productInfoViewController passValue:[_dataArray objectAtIndex:[sender tag] - 100]];//productInfoViewController实现
+    NSMutableDictionary *valueDic = [[NSMutableDictionary alloc] initWithDictionary:[_dataArray objectAtIndex:[sender tag] - 100]];
+    [valueDic setValue:[[NSString alloc] initWithFormat:@"%d",_nowMerchantType] forKey:@"MERCHANT_ID"];
+    [productInfoViewController passValue:valueDic];//productInfoViewController实现
     [self.navigationController pushViewController:productInfoViewController animated:YES];
 }
 

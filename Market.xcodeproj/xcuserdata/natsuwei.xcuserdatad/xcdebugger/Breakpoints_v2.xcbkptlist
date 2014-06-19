@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Market/myclass/ServerConnect.m"
-            timestampString = "424259449.350832"
+            timestampString = "424858455.202572"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "484"
-            endingLineNumber = "484"
+            startingLineNumber = "486"
+            endingLineNumber = "486"
             landmarkName = "+getAppList:offset:"
             landmarkType = "5">
          </BreakpointContent>
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Market/myclass/ServerConnect.m"
-            timestampString = "424595359.014725"
+            timestampString = "424858455.202572"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "542"
-            endingLineNumber = "542"
+            startingLineNumber = "584"
+            endingLineNumber = "584"
             landmarkName = "+getDictionaryByUrl:"
             landmarkType = "5">
          </BreakpointContent>
@@ -152,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Market/myclass/ServerConnect.m"
-            timestampString = "424595359.014725"
+            timestampString = "424858455.202572"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "593"
-            endingLineNumber = "593"
+            startingLineNumber = "635"
+            endingLineNumber = "635"
             landmarkName = "+doSyncRequest:"
             landmarkType = "5">
          </BreakpointContent>
@@ -248,11 +248,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Market/myclass/ServerConnect.m"
-            timestampString = "424595083.225424"
+            timestampString = "424858455.202572"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "503"
-            endingLineNumber = "503"
+            startingLineNumber = "505"
+            endingLineNumber = "505"
             landmarkName = "+getProductList:merchant_id:"
             landmarkType = "5">
          </BreakpointContent>
@@ -264,11 +264,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Market/myclass/ServerConnect.m"
-            timestampString = "424593440.929367"
+            timestampString = "424858455.202572"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "489"
-            endingLineNumber = "489"
+            startingLineNumber = "491"
+            endingLineNumber = "491"
             landmarkName = "+getAppList:offset:"
             landmarkType = "5">
          </BreakpointContent>
@@ -312,11 +312,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Market/iphoneview/GoodsViewController.m"
-            timestampString = "424665223.65104"
+            timestampString = "424863193.641376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
             landmarkName = "-linkButtonPressed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -328,11 +328,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Market/iphoneview/GoodsViewController.m"
-            timestampString = "424665223.65104"
+            timestampString = "424863193.641376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
             landmarkName = "-linkButtonPressed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -344,7 +344,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Market/iphoneview/GoodsViewController.m"
-            timestampString = "424665223.65104"
+            timestampString = "424850578.33148"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
@@ -360,7 +360,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Market/iphoneview/GoodsViewController.m"
-            timestampString = "424665223.65104"
+            timestampString = "424850578.33148"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "278"
@@ -376,11 +376,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Market/iphoneview/GoodsViewController.m"
-            timestampString = "424665223.65104"
+            timestampString = "424863193.641376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -392,7 +392,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Market/iphoneview/GoodsViewController.m"
-            timestampString = "424665223.65104"
+            timestampString = "424850578.33148"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "307"
@@ -408,11 +408,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Market/iphoneview/ProductInfoViewController.m"
-            timestampString = "424754190.507279"
+            timestampString = "424859031.929626"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "-passValue:"
             landmarkType = "5">
          </BreakpointContent>
@@ -424,12 +424,140 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Market/iphoneview/ProductInfoViewController.m"
-            timestampString = "424754190.507279"
+            timestampString = "424859031.929626"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "-initMyView"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Market/myclass/ServerConnect.m"
+            timestampString = "424858455.202572"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "644"
+            endingLineNumber = "644"
+            landmarkName = "+doSyncRequest:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Market/myclass/ServerConnect.m"
+            timestampString = "424858455.202572"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "647"
+            endingLineNumber = "647"
+            landmarkName = "+doSyncRequest:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Market/iphoneview/ProductInfoViewController.m"
+            timestampString = "424859031.929626"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "-collectBtnPressed"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Market/myclass/ServerConnect.m"
+            timestampString = "424858569.110231"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "513"
+            endingLineNumber = "513"
+            landmarkName = "+addProductAttention:merchant_id:authkey:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Market/iphoneview/ProductInfoViewController.m"
+            timestampString = "424859031.929626"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "-collectBtnPressed"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Market/myclass/ServerConnect.m"
+            timestampString = "424865806.792251"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "502"
+            endingLineNumber = "502"
+            landmarkName = "+getProductList:merchant_id:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Market/myclass/ServerConnect.m"
+            timestampString = "424865814.17816"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "507"
+            endingLineNumber = "507"
+            landmarkName = "+getProductList:merchant_id:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Market/myclass/ServerConnect.m"
+            timestampString = "424865891.019185"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "508"
+            endingLineNumber = "508"
+            landmarkName = "+getProductList:merchant_id:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

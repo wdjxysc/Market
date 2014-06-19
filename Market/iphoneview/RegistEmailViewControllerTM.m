@@ -7,7 +7,6 @@
 //
 
 #import "RegistEmailViewControllerTM.h"
-#import "SetUserInfoViewController.h"
 #import "LoginViewController.h"
 #import "Regex.h"
 #import "SVProgressHUD.h"
@@ -80,7 +79,6 @@
     _backToLoginViewBtn.enabled = false;
     NSThread *thread = [[NSThread alloc]initWithTarget:self selector:@selector(regist) object:nil];
     [thread start];
-    
 }
 
 -(void)regist

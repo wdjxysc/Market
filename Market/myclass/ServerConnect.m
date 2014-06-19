@@ -8,6 +8,8 @@
 
 #import "ServerConnect.h"
 #import "MySingleton.h"
+#import "SVProgressHUD.h"
+
 
 @implementation ServerConnect
 
@@ -484,7 +486,7 @@
     NSDictionary *dic;
     
     //http://192.168.110.36:8080/sys/tools_terminalGetTools?toolType=3&offset=0
-    NSString *url = [[NSString alloc]initWithFormat:@"http://192.168.110.36:8080/sys/tools_terminalGetTools?toolType=%d&offset=%d",tooltype,offset];
+    NSString *url = [[NSString alloc]initWithFormat:@"http://test.ebelter.com/sys/tools_terminalGetTools?toolType=%d&offset=%d",tooltype,offset];
     dic = [self getDictionaryByUrl:url];
     return dic;
 }
@@ -500,9 +502,49 @@
     NSArray *array;
     
     //http://localhost/sys/productManage_queryProductListByApp?productVo.product_name=&merchant_id=5
-    NSString *url = [[NSString alloc]initWithFormat:@"http://192.168.110.32:80/sys/productManage_queryProductListByApp?productVo.product_name=%@&merchant_id=%d",productName,merchant_id];
+    NSString *url = [[NSString alloc]initWithFormat:@"http://test.ebelter.com/sys/productManage_queryProductListByApp?productVo.product_name=%@&merchant_id=%d",productName,merchant_id];
     array = [self getArrayByUrl:url];
     return array;
+}
+
+
++(NSArray *)addProductAttention:(int)product_id merchant_id:(int)merchant_id authkey:(NSString *)authkey
+{
+    NSArray *array;
+    
+    //http://192.168.110.32:80/sys/productManage_addProductAttention?productAttentionVo.product_id=74&productAttentionVo.merchant_id=4&authkey=87
+    NSString *url = [[NSString alloc]initWithFormat:@"http://test.ebelter.com/sys/productManage_addProductAttention?productAttentionVo.product_id=%d&productAttentionVo.merchant_id=%d&authkey=%@",product_id,merchant_id,authkey];
+    array = [self getArrayByUrl:url];
+    return array;
+}
+
+
++(NSArray *)queryProductAttention : (NSString *)authkey
+{
+    NSArray *array;
+    //http://192.168.110.32:80/sys/productManage_queryProductAttention?authkey=87
+    NSString *url = [[NSString alloc]initWithFormat:@"http://test.ebelter.com/sys/productManage_queryProductAttention?authkey=%@",authkey];
+    array = [self getArrayByUrl:url];
+    return array;
+}
+
+
++(NSArray *)deleteProductAttention :(int)attention_id
+{
+    NSArray *array;
+    //http://192.168.110.32:80/sys/productManage_deleteProductAttention?productAttentionVo.attention_id=1
+    NSString *url = [[NSString alloc]initWithFormat:@"http://test.ebelter.com/sys/productManage_deleteProductAttention?productAttentionVo.attention_id=%d",attention_id];
+    array = [self getArrayByUrl:url];
+    return array;
+}
+
++(NSDictionary *)autoRegister
+{
+    NSDictionary *dic;
+    //http://localhost:8080/service/ehealth_userRegister?autoregister=autoregister&dtype=18
+    NSString *url = [[NSString alloc]initWithFormat:@"http://test.ebelter.com/service/ehealth_userRegister?autoregister=autoregister&dtype=18"];;
+    dic = [self getDictionaryByUrl:url];
+    return dic;
 }
 
 
@@ -596,12 +638,13 @@
     
     NSHTTPURLResponse *response;
     NSError *error;
-    
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
     
     if(error != nil)
     {
         NSLog(@"Error on load = %@", [error localizedDescription]);
+        [SVProgressHUD showErrorWithStatus:[error localizedDescription]];
         return nil;
     }
     
