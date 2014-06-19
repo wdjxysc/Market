@@ -28,6 +28,14 @@
 		64588CD1194EDE24008C9561 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 64588CCF194EDE24008C9561 /* SVProgressHUD.m */; };
 		64588CD6194EFBEC008C9561 /* ProductInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64588CD4194EFBEC008C9561 /* ProductInfoViewController.m */; };
 		64588CD7194EFBEC008C9561 /* ProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64588CD5194EFBEC008C9561 /* ProductInfoViewController.xib */; };
+		648270EA195284DF005B057C /* LoginViewControllerTM_4Inch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648270E2195284DF005B057C /* LoginViewControllerTM_4Inch.xib */; };
+		648270EB195284DF005B057C /* LoginViewControllerTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 648270E4195284DF005B057C /* LoginViewControllerTM.m */; };
+		648270EC195284DF005B057C /* LoginViewControllerTM.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648270E5195284DF005B057C /* LoginViewControllerTM.xib */; };
+		648270F4195286FF005B057C /* RegistEmailViewControllerTM_4Inch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648270F0195286FF005B057C /* RegistEmailViewControllerTM_4Inch.xib */; };
+		648270F5195286FF005B057C /* RegistEmailViewControllerTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 648270F2195286FF005B057C /* RegistEmailViewControllerTM.m */; };
+		648270F6195286FF005B057C /* RegistEmailViewControllerTM.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648270F3195286FF005B057C /* RegistEmailViewControllerTM.xib */; };
+		648270FA19528888005B057C /* ChangPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 648270F819528888005B057C /* ChangPasswordViewController.m */; };
+		648270FB19528888005B057C /* ChangPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648270F919528888005B057C /* ChangPasswordViewController.xib */; };
 		64AEDA12195135F200C8E651 /* CopyConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64AED9C0195135F200C8E651 /* CopyConnection.framework */; };
 		64AEDA13195135F200C8E651 /* DouBanConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64AED9C1195135F200C8E651 /* DouBanConnection.framework */; };
 		64AEDA14195135F200C8E651 /* DropboxConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64AED9C2195135F200C8E651 /* DropboxConnection.framework */; };
@@ -172,6 +180,17 @@
 		64588CD4194EFBEC008C9561 /* ProductInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductInfoViewController.m; path = iphoneview/ProductInfoViewController.m; sourceTree = "<group>"; };
 		64588CD5194EFBEC008C9561 /* ProductInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductInfoViewController.xib; path = iphoneview/ProductInfoViewController.xib; sourceTree = "<group>"; };
 		64588CD8194FD6E1008C9561 /* UIViewPassValueDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UIViewPassValueDelegate.h; path = valueprotocol/UIViewPassValueDelegate.h; sourceTree = "<group>"; };
+		648270E2195284DF005B057C /* LoginViewControllerTM_4Inch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewControllerTM_4Inch.xib; path = iphoneview/LoginViewControllerTM_4Inch.xib; sourceTree = "<group>"; };
+		648270E3195284DF005B057C /* LoginViewControllerTM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewControllerTM.h; path = iphoneview/LoginViewControllerTM.h; sourceTree = "<group>"; };
+		648270E4195284DF005B057C /* LoginViewControllerTM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewControllerTM.m; path = iphoneview/LoginViewControllerTM.m; sourceTree = "<group>"; };
+		648270E5195284DF005B057C /* LoginViewControllerTM.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewControllerTM.xib; path = iphoneview/LoginViewControllerTM.xib; sourceTree = "<group>"; };
+		648270F0195286FF005B057C /* RegistEmailViewControllerTM_4Inch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegistEmailViewControllerTM_4Inch.xib; path = iphoneview/RegistEmailViewControllerTM_4Inch.xib; sourceTree = "<group>"; };
+		648270F1195286FF005B057C /* RegistEmailViewControllerTM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistEmailViewControllerTM.h; path = iphoneview/RegistEmailViewControllerTM.h; sourceTree = "<group>"; };
+		648270F2195286FF005B057C /* RegistEmailViewControllerTM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistEmailViewControllerTM.m; path = iphoneview/RegistEmailViewControllerTM.m; sourceTree = "<group>"; };
+		648270F3195286FF005B057C /* RegistEmailViewControllerTM.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegistEmailViewControllerTM.xib; path = iphoneview/RegistEmailViewControllerTM.xib; sourceTree = "<group>"; };
+		648270F719528888005B057C /* ChangPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangPasswordViewController.h; path = iphoneview/ChangPasswordViewController.h; sourceTree = "<group>"; };
+		648270F819528888005B057C /* ChangPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChangPasswordViewController.m; path = iphoneview/ChangPasswordViewController.m; sourceTree = "<group>"; };
+		648270F919528888005B057C /* ChangPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChangPasswordViewController.xib; path = iphoneview/ChangPasswordViewController.xib; sourceTree = "<group>"; };
 		64AED9C0195135F200C8E651 /* CopyConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CopyConnection.framework; sourceTree = "<group>"; };
 		64AED9C1195135F200C8E651 /* DouBanConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DouBanConnection.framework; sourceTree = "<group>"; };
 		64AED9C2195135F200C8E651 /* DropboxConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxConnection.framework; sourceTree = "<group>"; };
@@ -484,6 +503,17 @@
 		645132C81945A6F9002A0B1B /* iphoneview */ = {
 			isa = PBXGroup;
 			children = (
+				648270F719528888005B057C /* ChangPasswordViewController.h */,
+				648270F819528888005B057C /* ChangPasswordViewController.m */,
+				648270F919528888005B057C /* ChangPasswordViewController.xib */,
+				648270F0195286FF005B057C /* RegistEmailViewControllerTM_4Inch.xib */,
+				648270F1195286FF005B057C /* RegistEmailViewControllerTM.h */,
+				648270F2195286FF005B057C /* RegistEmailViewControllerTM.m */,
+				648270F3195286FF005B057C /* RegistEmailViewControllerTM.xib */,
+				648270E2195284DF005B057C /* LoginViewControllerTM_4Inch.xib */,
+				648270E3195284DF005B057C /* LoginViewControllerTM.h */,
+				648270E4195284DF005B057C /* LoginViewControllerTM.m */,
+				648270E5195284DF005B057C /* LoginViewControllerTM.xib */,
 				64BB160119469F8D00E5CE82 /* LoginViewController.h */,
 				64BB160219469F8D00E5CE82 /* LoginViewController.m */,
 				64BB160319469F8D00E5CE82 /* LoginViewController.xib */,
@@ -832,12 +862,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				645132A61945A2B3002A0B1B /* Images.xcassets in Resources */,
+				648270F4195286FF005B057C /* RegistEmailViewControllerTM_4Inch.xib in Resources */,
+				648270EC195284DF005B057C /* LoginViewControllerTM.xib in Resources */,
 				645132981945A2B3002A0B1B /* InfoPlist.strings in Resources */,
 				64AEDA39195135F300C8E651 /* PinterestSDKResources.bundle in Resources */,
+				648270F6195286FF005B057C /* RegistEmailViewControllerTM.xib in Resources */,
 				64BB16141946A07400E5CE82 /* PostViewController.xib in Resources */,
+				648270EA195284DF005B057C /* LoginViewControllerTM_4Inch.xib in Resources */,
 				64BB160519469F8D00E5CE82 /* LoginViewController.xib in Resources */,
 				645132A11945A2B3002A0B1B /* Main.storyboard in Resources */,
 				64BB16171946AEE400E5CE82 /* Localizable.strings in Resources */,
+				648270FB19528888005B057C /* ChangPasswordViewController.xib in Resources */,
 				64AEDA36195135F300C8E651 /* GooglePlus.bundle in Resources */,
 				64AEDA4D195135F300C8E651 /* ShareSDKiPhoneSimpleShareViewUI.bundle in Resources */,
 				64AEDA44195135F300C8E651 /* ShareSDKFlatShareViewUI.bundle in Resources */,
@@ -881,14 +916,17 @@
 				64AF26031949A182009572E5 /* WQPlaySound.m in Sources */,
 				64AF2608194AEFD7009572E5 /* GoodsTableViewCell.m in Sources */,
 				64BB160E1946A01800E5CE82 /* UserViewController.m in Sources */,
+				648270FA19528888005B057C /* ChangPasswordViewController.m in Sources */,
 				645132A41945A2B3002A0B1B /* ViewController.m in Sources */,
 				64B29C741948217600AC5FAB /* AppsViewController.m in Sources */,
 				64AF26011949A182009572E5 /* Regex.m in Sources */,
 				64AF25ED194991FE009572E5 /* AppsTableViewCell.m in Sources */,
+				648270F5195286FF005B057C /* RegistEmailViewControllerTM.m in Sources */,
 				64B29C791948223500AC5FAB /* GoodsViewController.m in Sources */,
 				64AF25FE1949A182009572E5 /* DataParseTool.m in Sources */,
 				64588CD6194EFBEC008C9561 /* ProductInfoViewController.m in Sources */,
 				6451329E1945A2B3002A0B1B /* AppDelegate.m in Sources */,
+				648270EB195284DF005B057C /* LoginViewControllerTM.m in Sources */,
 				64AF26041949A182009572E5 /* XmlTool.m in Sources */,
 				64AF26001949A182009572E5 /* MySingleton.m in Sources */,
 				64AF25FF1949A182009572E5 /* EoceneServerConnect.m in Sources */,

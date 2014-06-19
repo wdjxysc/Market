@@ -41,8 +41,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
 -(void)passValue:(NSDictionary *)value
 {
     _productInfoDic = value;
