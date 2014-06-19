@@ -7,6 +7,7 @@
 //
 
 #import "ProductInfoViewController.h"
+#import <ShareSDK/ShareSDK.h>
 
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 #define Screen_height   [[UIScreen mainScreen] bounds].size.height
@@ -73,6 +74,13 @@
     NSURL *url = [NSURL URLWithString:[_productInfoDic valueForKey:@"MERCHANT_LINKURL"]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];//链接网络地址
+    
+    UIButton *shareBtn = [[UIButton alloc]initWithFrame:CGRectMake(50, 34, 9, 16)];
+    [shareBtn setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [shareBtn addTarget:self action:@selector(shareBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:shareBtn];
+    
 }
 
 -(void)backToMainViewController
@@ -81,4 +89,34 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
+-(void)shareBtnPressed
+{
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"ShareSDK"  ofType:@"jpg"];
+    //构造分享内容
+    id<ISSContent> publishContent = [ShareSDK content:[_productInfoDic valueForKey:@"MERCHANT_LINKURL"]
+                                       defaultContent:@"倍泰出品,你值得拥有！"
+                                                image:[ShareSDK imageWithPath:imagePath]
+                                                title:@"ShareSDK"
+                                                  url:[_productInfoDic valueForKey:@"MERCHANT_LINKURL"]
+                                          description:@"这是一条测试信息"
+                                            mediaType:SSPublishContentMediaTypeNews];
+    
+    [ShareSDK showShareActionSheet:nil
+                         shareList:nil
+                           content:publishContent
+                     statusBarTips:YES
+                       authOptions:nil
+                      shareOptions: nil
+                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                                if (state == SSResponseStateSuccess)
+                                {
+                                    NSLog(@"分享成功");
+                                }
+                                else if (state == SSResponseStateFail)
+                                {
+                                    NSLog(@"分享失败,错误码:%d,错误描述:%@", [error errorCode], [error errorDescription]);
+                                }
+                            }];
+}
 @end
