@@ -145,4 +145,8 @@
                                 redirectUri:@"https://dev.twitter.com"];
 }
 
+-(void)initBaiduMobStat
+{
+    
+}
 @end

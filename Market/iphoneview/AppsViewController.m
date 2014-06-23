@@ -75,6 +75,10 @@
 
 -(void)initMyView
 {
+    //设置状态栏字体颜色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    
     [self.view setBackgroundColor:[UIColor colorWithRed:232/255.0f green:232/255.0f blue:232/255.0f alpha:1.0f]];
     
     //本页标题背景图片
@@ -160,8 +164,8 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         NSLog(@"%@",[rowData valueForKey:@"imageName"]);
-//        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://img.baidu.com/hi/img/ihome/logo.gif"]];//适用于加载在网页上的图片
-        NSData *data = [ServerConnect doSyncRequest:[rowData valueForKey:@"imageName"]];//用于下载图片
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[rowData valueForKey:@"imageName"]]];//适用于加载在网页上的图片
+//        NSData *data = [ServerConnect doSyncRequest:[rowData valueForKey:@"imageName"]];//用于下载图片
         UIImage *image = [UIImage imageWithData:data];
         
         if (image) {

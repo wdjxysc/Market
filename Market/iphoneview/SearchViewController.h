@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewPassValueDelegate.h"
 
-@interface SearchViewController : UIViewController
+@interface SearchViewController : UIViewController<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
+@property(retain,nonatomic)UITableView *tableView;
+@property(retain,nonatomic)NSMutableArray *dataArray;
+@property int selectCellIndex;
 
+@property(retain,nonatomic)NSObject<UIViewPassValueDelegate> *passValueDelegate;
 @end

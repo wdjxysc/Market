@@ -234,7 +234,7 @@
     //    [_registBtn setTitle:NSLocalizedString(@"没有账号？立即注册", nil) forState:UIControlStateNormal];
     //    [_forgetPassword setTitle:@"忘记密码" forState:UIControlStateNormal];
     
-    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 
@@ -243,9 +243,9 @@
     [MySingleton sharedSingleton].serverDomain = @"www.ebelter.com"; //设置服务器地址
     [MySingleton sharedSingleton].nowuserinfo = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                                  [[NSString alloc] initWithFormat:@""],@"Userid",
-                                                 [[NSString alloc] initWithFormat:@""],@"UserNumber",
-                                                 [[NSString alloc] initWithFormat:@""],@"UserName",
-                                                 [[NSString alloc] initWithFormat:@""],@"PassWord",
+                                                 [[NSString alloc] initWithFormat:@"1"],@"UserNumber",
+                                                 [[NSString alloc] initWithFormat:@"guest"],@"UserName",
+                                                 [[NSString alloc] initWithFormat:@"123456"],@"PassWord",
                                                  [[NSString alloc] initWithFormat:@"65.0"],@"Weight",
                                                  [[NSString alloc] initWithFormat:@"1992-05-12"],@"Birthday",
                                                  [[NSString alloc] initWithFormat:@"0"],@"Gender",
@@ -254,6 +254,8 @@
                                                  [[NSString alloc] initWithFormat:@""],@"AuthKey",
                                                  [[NSString alloc] initWithFormat:@"32"],@"Age",
                                                  [[NSString alloc] initWithFormat:@"75"],@"StepSize",
+                                                 [[NSString alloc] initWithFormat:@"0"],@"LengthUnit",
+                                                 [[NSString alloc] initWithFormat:@"0"],@"WeightUnit",
                                                  nil];
     
     NSLog(@"MySingleton AuthKey = %@", [[MySingleton sharedSingleton].nowuserinfo valueForKey:@"AuthKey"]);

@@ -61,6 +61,9 @@
 
 -(void)initMyView
 {
+    //设置状态栏字体颜色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     //本页标题图片以及logo图片
     UIImageView *topImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 64)];
     [topImageView setImage:[UIImage imageNamed:@"navibar_bg"]];

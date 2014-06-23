@@ -53,7 +53,7 @@
 //merchant_id(商家ID，1、淘宝商城 2、京东商城 3、爱康国宾 4、有机生活 5、巴马水，选填)
 //[请求示例]：http://localhost/sys/productManage_queryProductListByApp?productVo.product_name=&merchant_id=5
 //[本地测试地址]：http://192.168.110.32:80/sys/productManage_queryProductListByApp?productVo.product_name=&merchant_id=5
-+(NSArray *)getProductList:(NSString *)productName merchant_id:(int)merchant_id;
++(NSArray *)getProductList:(NSString *)productName merchant_id:(NSString *)merchant_id;
 
 
 //【**********【关注商品】**********】

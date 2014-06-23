@@ -10,6 +10,7 @@
 #import "GoodsTableViewCell.h"
 #import "ServerConnect.h"
 #import "ProductInfoViewController.h"
+#import "GoodsDetailedTableViewCell.h"
 
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 #define Screen_height   [[UIScreen mainScreen] bounds].size.height
@@ -49,13 +50,14 @@
     [self initMyView];
     //初始化dataarray
     _dataArray = [[NSMutableArray alloc]init];
+    _selectCellIndex = -1;
     
     _nowMerchantType = 1;//初始设为淘宝
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         //从服务器获取商品列表
-        NSArray *array = [ServerConnect getProductList:@"" merchant_id:_nowMerchantType];
+        NSArray *array = [ServerConnect getProductList:@"" merchant_id:[[NSString alloc] initWithFormat:@"%d",_nowMerchantType]];
         if(array && [array count]!=0)
         {
             _dataArray = [array[0] valueForKey:@"RESULT_INFO"];
@@ -84,6 +86,10 @@
     //初始化界面
     //
     [self.view setBackgroundColor:[UIColor colorWithRed:232/255.0f green:232/255.0f blue:232/255.0f alpha:1.0f]];
+    
+    //设置状态栏字体颜色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     
     //本页标题背景图片
     UIImageView *topImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 64)];
@@ -172,14 +178,14 @@
         }
     }
     
-    
+    //商品列表
     CGRect tableviewrect = CGRectMake(5, 104, 310, 335);
     if(iPhone5)
     {
         tableviewrect = CGRectMake(5, 104, 310, 335 + 85);
     }
     _tableView = [[UITableView alloc]initWithFrame:tableviewrect];
-    _tableView.backgroundColor = [UIColor clearColor];
+//    _tableView.backgroundColor = [UIColor clearColor];
     [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     _tableView.delegate = self;
@@ -233,6 +239,8 @@
 
 -(void)selectedIndex:(int)index
 {
+    _selectCellIndex = -1;
+    
     [_taobaoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_taobaoBtn setBackgroundImage:[UIImage imageNamed:@"productbtn_normal"] forState:UIControlStateNormal];
     [_jingdongBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -272,7 +280,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         //从服务器获取商品列表
-        NSArray *array = [ServerConnect getProductList:@"" merchant_id:_nowMerchantType];
+        NSArray *array = [ServerConnect getProductList:@"" merchant_id:[[NSString alloc] initWithFormat:@"%d",_nowMerchantType]];
         if(array && [array count]!=0)
         {
             _dataArray = [array[0] valueForKey:@"RESULT_INFO"];
@@ -297,38 +305,84 @@
 {
     static NSString *CellTableIdentifier = @"CellTableIdentifier";
     UITableViewCell *returncell = [[UITableViewCell alloc]init];
-    GoodsTableViewCell *cell = (GoodsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellTableIdentifier];
-    if(cell == nil)
-    {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"GoodsTableViewCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
-    NSUInteger row = [indexPath row];
-    NSDictionary *rowData = [self.dataArray objectAtIndex:row];
-    [cell.linkBtn addTarget:self action:@selector(linkBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.linkBtn setTag:100+row];
-    cell.productDescriptionLabel.text = [rowData valueForKey:@"PRODUCT_DESCRIPTION"];
-    cell.productNameLabel.text = [rowData valueForKey:@"PRODUCT_NAME"];
+    GoodsTableViewCell *cell;
+    GoodsDetailedTableViewCell *detailedcell;
+    NSLog(@"第%d行",[indexPath row]);
+    
+    if(indexPath.row != _selectCellIndex){
+        cell = (GoodsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellTableIdentifier];
+        if(cell == nil)
+        {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"GoodsTableViewCell" owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        NSUInteger row = [indexPath row];
+        NSDictionary *rowData = [self.dataArray objectAtIndex:row];
+        [cell.linkBtn addTarget:self action:@selector(linkBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.linkBtn setTag:100 + row];
+        cell.productDescriptionLabel.text = [rowData valueForKey:@"PRODUCT_DESCRIPTION"];
+        cell.productNameLabel.text = [rowData valueForKey:@"PRODUCT_NAME"];
     
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[rowData valueForKey:@"PRODUCT_IMAGEURL"]]];
         UIImage *image = [UIImage imageWithData:data];
         if (image) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [cell.imageProduct setImage:image];
+//                [cell.imageProduct setImage:image];
+                [cell.linkBtn setBackgroundImage:image forState:UIControlStateNormal];
             });
+            }
+            else {
+                NSLog(@"-- impossible download");
+            }
+        });
+        
+        returncell = cell;
+        returncell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return returncell;
+    }
+    else
+    {
+        detailedcell =(GoodsDetailedTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellTableIdentifier];
+        
+        if(detailedcell == nil)
+        {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"GoodsDetailedTableViewCell" owner:self options:nil];
+            detailedcell = [nib objectAtIndex:0];
         }
-        else {
-            NSLog(@"-- impossible download");
-        }
-    });
+        NSUInteger row = [indexPath row];
+        NSDictionary *rowData = [self.dataArray objectAtIndex:row];
+        [detailedcell.linkBtn addTarget:self action:@selector(linkBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [detailedcell.linkBtn setTag:100+row];
+        detailedcell.productDescriptionLabel.text = [rowData valueForKey:@"PRODUCT_DESCRIPTION"];
+        detailedcell.productNameLabel.text = [rowData valueForKey:@"PRODUCT_NAME"];
+        detailedcell.detailedLabel.text = [rowData valueForKey:@"PRODUCT_DESCRIPTION"];
+        detailedcell.detailedLabel.text = @"倍泰智能电子血压计ePa-46B4";
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[rowData valueForKey:@"PRODUCT_IMAGEURL"]]];
+            UIImage *image = [UIImage imageWithData:data];
+            if (image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //                [cell.imageProduct setImage:image];
+                    [detailedcell.linkBtn setBackgroundImage:image forState:UIControlStateNormal];
+                });
+            }
+            else {
+                NSLog(@"-- impossible download");
+            }
+        });
+        
+        returncell = detailedcell;
+        returncell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return returncell;
+    }
     
     
-    returncell = cell;
-    returncell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return returncell;
+    
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -343,7 +397,23 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat result = 110;
+    if(indexPath.row == _selectCellIndex)
+    {
+        result = 540;
+    }
     return result;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row == _selectCellIndex)
+    {
+        _selectCellIndex = -1;
+    }
+    else{
+        _selectCellIndex = indexPath.row;
+    }
+    [_tableView reloadData];
 }
 
 -(IBAction)linkBtnPressed:(id)sender
@@ -367,7 +437,7 @@
 //    NSString *urlStr = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/us/app/id%@?mt=8", @"873874226"];
     
     
-    //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/jing-dong-hd/id434374726?mt=8"]];
+    //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/jing-dong-hd/id434374726?mt=8"]];
     //https://itunes.apple.com/cn/app/bei-tai-yun-jian-kang/id873874226?mt=8
     //https://itunes.apple.com/cn/app/ehealth-pro-e-jian-kang/id726122320?mt=8
 }

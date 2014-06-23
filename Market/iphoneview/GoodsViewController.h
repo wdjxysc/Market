@@ -14,6 +14,7 @@
 @property(retain,nonatomic)UITableView *tableView;
 @property(retain,nonatomic)NSMutableArray *dataArray;
 @property int nowMerchantType;
+@property int selectCellIndex;
 
 @property(retain,nonatomic)UIButton *taobaoBtn;
 @property(retain,nonatomic)UIButton *jingdongBtn;

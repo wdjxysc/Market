@@ -486,7 +486,7 @@
     NSDictionary *dic;
     
     //http://192.168.110.36:8080/sys/tools_terminalGetTools?toolType=3&offset=0
-    NSString *url = [[NSString alloc]initWithFormat:@"http://test.ebelter.com/sys/tools_terminalGetTools?toolType=%d&offset=%d",tooltype,offset];
+    NSString *url = [[NSString alloc]initWithFormat:@"http://192.168.110.36：8080/sys/tools_terminalGetTools?toolType=%d&offset=%d",tooltype,offset];
     dic = [self getDictionaryByUrl:url];
     return dic;
 }
@@ -497,12 +497,12 @@
 //merchant_id(商家ID，1、淘宝商城 2、京东商城 3、爱康国宾 4、有机生活 5、巴马水，选填)
 //[请求示例]：http://localhost/sys/productManage_queryProductListByApp?productVo.product_name=&merchant_id=5
 //[本地测试地址]：http://192.168.110.32:80/sys/productManage_queryProductListByApp?productVo.product_name=&merchant_id=5
-+(NSArray *)getProductList:(NSString *)productName merchant_id:(int)merchant_id
++(NSArray *)getProductList:(NSString *)productName merchant_id:(NSString *)merchant_id
 {
     NSArray *array;
     
     //http://localhost/sys/productManage_queryProductListByApp?productVo.product_name=&merchant_id=5
-    NSString *url = [[NSString alloc]initWithFormat:@"http://test.ebelter.com/sys/productManage_queryProductListByApp?productVo.product_name=%@&merchant_id=%d",productName,merchant_id];
+    NSString *url = [[NSString alloc]initWithFormat:@"http://test.ebelter.com/sys/productManage_queryProductListByApp?productVo.product_name=%@&merchant_id=%@",productName,merchant_id];
     array = [self getArrayByUrl:url];
     return array;
 }

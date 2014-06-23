@@ -27,12 +27,8 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tabitem_search_0" translatesAutoresizingMaskIntoConstraints="NO" id="bGt-ag-Ken">
-                        <rect key="frame" x="20" y="15" width="80" height="80"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vt1-ed-rNV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+                        <rect key="frame" x="20" y="15" width="80" height="80"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,14 +37,10 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="imageProduct" destination="bGt-ag-Ken" id="1Cp-OG-3s1"/>
                 <outlet property="linkBtn" destination="Vt1-ed-rNV" id="2jR-Ar-fLd"/>
                 <outlet property="productDescriptionLabel" destination="eVk-nF-9om" id="JcQ-xb-UHv"/>
                 <outlet property="productNameLabel" destination="30m-tr-CkF" id="kUy-QN-xzJ"/>
             </connections>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="tabitem_search_0" width="24" height="24"/>
-    </resources>
 </document>

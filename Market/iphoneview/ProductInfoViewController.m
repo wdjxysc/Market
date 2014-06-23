@@ -56,6 +56,9 @@
     //
     [self.view setBackgroundColor:[UIColor colorWithRed:232/255.0f green:232/255.0f blue:232/255.0f alpha:1.0f]];
     
+    //设置状态栏字体颜色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     //本页标题背景图片
     UIImageView *topImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 64)];
     [topImageView setImage:[UIImage imageNamed:@"navibar_bg"]];
@@ -71,6 +74,9 @@
         webViewRect = CGRectMake(0, 64, 320, 367 + 88);
     }
     UIWebView *webView = [[UIWebView alloc] initWithFrame:webViewRect];
+    [webView setOpaque:YES];
+    [webView setScalesPageToFit:YES];
+    [webView setDelegate:self];
     [self.view addSubview:webView];
     NSURL *url = [NSURL URLWithString:[_productInfoDic valueForKey:@"MERCHANT_LINKURL"]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -177,4 +183,29 @@
         }
     });
 }
+
+
+
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    BOOL b;
+    return b;
+}
+
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+//    [SVProgressHUD showWithStatus:@"加载中"];
+}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [SVProgressHUD showErrorWithStatus:@"加载失败"];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+//    [SVProgressHUD showSuccessWithStatus:@"加载完成"];
+}
+
+
 @end

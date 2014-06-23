@@ -137,6 +137,8 @@
 		64BB16131946A07400E5CE82 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BB16111946A07400E5CE82 /* PostViewController.m */; };
 		64BB16141946A07400E5CE82 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BB16121946A07400E5CE82 /* PostViewController.xib */; };
 		64BB16171946AEE400E5CE82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64BB16191946AEE400E5CE82 /* Localizable.strings */; };
+		64CFFD4C195426F900618433 /* GoodsDetailedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CFFD4A195426F900618433 /* GoodsDetailedTableViewCell.m */; };
+		64CFFD4D195426F900618433 /* GoodsDetailedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64CFFD4B195426F900618433 /* GoodsDetailedTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -316,6 +318,9 @@
 		64BB16121946A07400E5CE82 /* PostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostViewController.xib; path = iphoneview/PostViewController.xib; sourceTree = "<group>"; };
 		64BB161A1946AEED00E5CE82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		64BB161B1946AF2D00E5CE82 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		64CFFD49195426F900618433 /* GoodsDetailedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailedTableViewCell.h; path = iphoneview/GoodsDetailedTableViewCell.h; sourceTree = "<group>"; };
+		64CFFD4A195426F900618433 /* GoodsDetailedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailedTableViewCell.m; path = iphoneview/GoodsDetailedTableViewCell.m; sourceTree = "<group>"; };
+		64CFFD4B195426F900618433 /* GoodsDetailedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoodsDetailedTableViewCell.xib; path = iphoneview/GoodsDetailedTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -542,6 +547,9 @@
 				64AF2605194AEFD7009572E5 /* GoodsTableViewCell.h */,
 				64AF2606194AEFD7009572E5 /* GoodsTableViewCell.m */,
 				64AF2607194AEFD7009572E5 /* GoodsTableViewCell.xib */,
+				64CFFD49195426F900618433 /* GoodsDetailedTableViewCell.h */,
+				64CFFD4A195426F900618433 /* GoodsDetailedTableViewCell.m */,
+				64CFFD4B195426F900618433 /* GoodsDetailedTableViewCell.xib */,
 				64588CD3194EFBEC008C9561 /* ProductInfoViewController.h */,
 				64588CD4194EFBEC008C9561 /* ProductInfoViewController.m */,
 				64588CD5194EFBEC008C9561 /* ProductInfoViewController.xib */,
@@ -863,6 +871,7 @@
 			files = (
 				645132A61945A2B3002A0B1B /* Images.xcassets in Resources */,
 				648270F4195286FF005B057C /* RegistEmailViewControllerTM_4Inch.xib in Resources */,
+				64CFFD4D195426F900618433 /* GoodsDetailedTableViewCell.xib in Resources */,
 				648270EC195284DF005B057C /* LoginViewControllerTM.xib in Resources */,
 				645132981945A2B3002A0B1B /* InfoPlist.strings in Resources */,
 				64AEDA39195135F300C8E651 /* PinterestSDKResources.bundle in Resources */,
@@ -935,6 +944,7 @@
 				64BB16131946A07400E5CE82 /* PostViewController.m in Sources */,
 				645132C51945A6DE002A0B1B /* MainViewController.m in Sources */,
 				64588CD1194EDE24008C9561 /* SVProgressHUD.m in Sources */,
+				64CFFD4C195426F900618433 /* GoodsDetailedTableViewCell.m in Sources */,
 				64BB16091946A00100E5CE82 /* SearchViewController.m in Sources */,
 				64BB160419469F8D00E5CE82 /* LoginViewController.m in Sources */,
 			);

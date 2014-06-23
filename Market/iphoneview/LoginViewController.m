@@ -11,6 +11,7 @@
 #import "SearchViewController.h"
 #import "UserViewController.h"
 #import "PostViewController.h"
+#import "MySingleton.h"
 
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 #define Screen_height   [[UIScreen mainScreen] bounds].size.height
@@ -37,6 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self initMyView];
+    [self initApp];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,6 +55,9 @@
 -(void)initMyView
 {
     [_loginBtn addTarget:self action:@selector(loginBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+    
+    //设置状态栏字体颜色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 -(void)loginBtnPressed
@@ -93,6 +98,7 @@
                              UITextAttributeTextShadowOffset,
                              [UIFont fontWithName:@"Arial-Bold" size:0.0],
                              UITextAttributeFont,nil]];
+    searchViewNaviController.navigationBarHidden = YES;
     
     //        [measureViewController.navigationItem.leftBarButtonItem setBackgroundImage:@"History" forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
     searchViewNaviController.navigationBar.tintColor = [UIColor whiteColor];
@@ -106,7 +112,7 @@
                              UITextAttributeTextShadowColor,[NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
                              UITextAttributeTextShadowOffset,[UIFont fontWithName:@"Arial-Bold" size:0.0],
                              UITextAttributeFont,nil]];
-    
+    userViewNaviController.navigationBarHidden = YES;
     //        [measureViewController.navigationItem.leftBarButtonItem setBackgroundImage:@"History" forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
     userViewNaviController.navigationBar.tintColor = [UIColor whiteColor];
     
@@ -119,7 +125,7 @@
                              UITextAttributeTextShadowColor,[NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
                              UITextAttributeTextShadowOffset,[UIFont fontWithName:@"Arial-Bold" size:0.0],
                              UITextAttributeFont,nil]];
-    
+    postViewNaviController.navigationBarHidden = YES;
     //        [measureViewController.navigationItem.leftBarButtonItem setBackgroundImage:@"History" forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
     postViewNaviController.navigationBar.tintColor = [UIColor whiteColor];
     
@@ -154,4 +160,29 @@
         NSLog(@"show InfoView!");
     }];
 }
+
+
+-(void)initApp
+{
+    [MySingleton sharedSingleton].serverDomain = @"www.ebelter.com"; //设置服务器地址
+    [MySingleton sharedSingleton].nowuserinfo = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                                 [[NSString alloc] initWithFormat:@""],@"Userid",
+                                                 [[NSString alloc] initWithFormat:@"1"],@"UserNumber",
+                                                 [[NSString alloc] initWithFormat:@"guest"],@"UserName",
+                                                 [[NSString alloc] initWithFormat:@"123456"],@"PassWord",
+                                                 [[NSString alloc] initWithFormat:@"65.0"],@"Weight",
+                                                 [[NSString alloc] initWithFormat:@"1992-05-12"],@"Birthday",
+                                                 [[NSString alloc] initWithFormat:@"0"],@"Gender",
+                                                 [[NSString alloc] initWithFormat:@"172"],@"Height",
+                                                 [[NSString alloc] initWithFormat:@"0"],@"Profession",
+                                                 [[NSString alloc] initWithFormat:@""],@"AuthKey",
+                                                 [[NSString alloc] initWithFormat:@"32"],@"Age",
+                                                 [[NSString alloc] initWithFormat:@"75"],@"StepSize",
+                                                 [[NSString alloc] initWithFormat:@"0"],@"LengthUnit",
+                                                 [[NSString alloc] initWithFormat:@"0"],@"WeightUnit",
+                                                 nil];
+    
+    NSLog(@"MySingleton AuthKey = %@", [[MySingleton sharedSingleton].nowuserinfo valueForKey:@"AuthKey"]);
+}
+
 @end
