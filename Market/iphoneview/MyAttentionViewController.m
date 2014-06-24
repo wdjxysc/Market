@@ -1,67 +1,52 @@
 //
-//  SearchViewController.m
+//  MyAttentionViewController.m
 //  Market
 //
-//  Created by 夏 伟 on 14-6-10.
+//  Created by 夏 伟 on 14-6-23.
 //  Copyright (c) 2014年 夏 伟. All rights reserved.
 //
 
-#import "SearchViewController.h"
-#import "GoodsDetailedTableViewCell.h"
+#import "MyAttentionViewController.h"
 #import "GoodsTableViewCell.h"
-#import "ProductInfoViewController.h"
+#import "GoodsDetailedTableViewCell.h"
 #import "ServerConnect.h"
+#import "MySingleton.h"
+//#import "ProductInfoViewController.h"
 
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 #define Screen_height   [[UIScreen mainScreen] bounds].size.height
 #define Screen_width    [[UIScreen mainScreen] bounds].size.width
 
-
-@interface SearchViewController ()
+@interface MyAttentionViewController ()
 
 @end
 
-@implementation SearchViewController
+@implementation MyAttentionViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.tabBarItem.title = NSLocalizedString(@"SEARCH", nil);
-//        self.tabBarItem.image = [UIImage imageNamed:@"tabitem_search"];
-        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabitem_search_1"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabitem_search_0"]];
-        
-        //添加单击手势，隐藏软键盘
-        UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(View_TouchDown:)];
-        tapGr.cancelsTouchesInView = NO;
-        [self.view addGestureRecognizer:tapGr];
     }
     return self;
 }
-
-- (IBAction)View_TouchDown:(id)sender {
-    // 发送resignFirstResponder.
-    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
-}
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    //加载页面
     [self initMyView];
+    
     //初始化dataarray
     _dataArray = [[NSMutableArray alloc]init];
     _selectCellIndex = -1;
     
-    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         //从服务器获取商品列表
-        NSArray *array = [ServerConnect getProductList:@"" merchant_id:@""];
+//        NSArray *array = [ServerConnect getProductList:@"" merchant_id:[[NSString alloc] initWithFormat:@"%d",_nowMerchantType]];
+        NSArray *array = [ServerConnect queryProductAttention:[[MySingleton sharedSingleton].nowuserinfo valueForKey:@"AuthKey"]];
         if(array && [array count]!=0)
         {
             _dataArray = [array[0] valueForKey:@"RESULT_INFO"];
@@ -76,7 +61,6 @@
             NSLog(@"-- impossible download");
         }
     });
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,49 +71,45 @@
 
 -(void)initMyView
 {
+    //
+    //初始化界面
+    //
+    [self.view setBackgroundColor:[UIColor colorWithRed:232/255.0f green:232/255.0f blue:232/255.0f alpha:1.0f]];
+    
     //设置状态栏字体颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     
     //本页标题背景图片
     UIImageView *topImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 64)];
     [topImageView setImage:[UIImage imageNamed:@"navibar_bg"]];
     [self.view addSubview:topImageView];
     
-    //搜索框背景图片
-    UIImageView *searchbar_bg = [[UIImageView alloc]initWithFrame:CGRectMake(40, 23, 270, 38)];
-    [searchbar_bg setImage:[UIImage imageNamed:@"searchbar_bg"]];
+    //本页标题
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 30, 220, 24)];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.text = @"我的关注";
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:titleLabel];
     
-    //搜索按钮
-//    UIImageView *searchbar_icon = [[UIImageView alloc] initWithFrame:CGRectMake(10+ searchbar_bg.frame.origin.x, 10 + searchbar_bg.frame.origin.y, 19, 19)];
-//    [searchbar_icon setImage:[UIImage imageNamed:@"searchbar_icon"]];
-    UIButton *searchBtn = [[UIButton alloc]initWithFrame:CGRectMake(10+ searchbar_bg.frame.origin.x, 10 + searchbar_bg.frame.origin.y, 19, 19)];
-    [searchBtn setBackgroundImage:[UIImage imageNamed:@"searchbar_icon"] forState:UIControlStateNormal];
-    [searchBtn addTarget:self action:@selector(searchBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+    //返回按钮
+    UIButton *backButton = [[UIButton alloc]initWithFrame:CGRectMake(15, 34, 9, 16)];
+    //    [backButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [self.view addSubview:backButton];
+    [backButton addTarget:self action:@selector(backToMainViewController) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *backButton1 = [[UIButton alloc]initWithFrame:CGRectMake(0, 20, 40, 44)];
+    [self.view addSubview:backButton1];
+    [backButton1 addTarget:self action:@selector(backToMainViewController) forControlEvents:UIControlEventTouchUpInside];
     
-    
-    //搜索栏textfield
-    UITextField *searchbar_textfield = [[UITextField alloc]initWithFrame:CGRectMake(40 + searchbar_bg.frame.origin.x, searchbar_bg.frame.origin.y, 190, 38)];
-    [searchbar_textfield setPlaceholder:NSLocalizedString(@"SEARCH", @"搜索")];
-    searchbar_textfield.delegate = self;
-    //二维码图标
-    UIButton *qrBtn = [[UIButton alloc] initWithFrame:CGRectMake(238+ searchbar_bg.frame.origin.x, 6 + searchbar_bg.frame.origin.y, 26, 26)];
-    [qrBtn setBackgroundImage:[UIImage imageNamed:@"qr"] forState:UIControlStateNormal];
-    [qrBtn addTarget:self action:@selector(qrBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:searchbar_bg];
-    [self.view addSubview:qrBtn];
-//    [self.view addSubview:searchbar_icon];
-    [self.view addSubview:searchBtn];
-    [self.view addSubview:searchbar_textfield];
-    
-    //商品列表
+    //列表
     CGRect tableviewrect = CGRectMake(5, 69, 310, 370);
     if(iPhone5)
     {
         tableviewrect = CGRectMake(5, 69, 310, 370 + 85);
     }
     _tableView = [[UITableView alloc]initWithFrame:tableviewrect];
-    //    _tableView.backgroundColor = [UIColor clearColor];
+    _tableView.backgroundColor = [UIColor clearColor];
     [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     _tableView.delegate = self;
@@ -137,10 +117,13 @@
     [self.view addSubview:_tableView];
 }
 
--(void)qrBtnPressed
+-(void)backToMainViewController
 {
-    
+    //返回上个页面
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
+
 
 //@program tableview delegate
 
@@ -261,19 +244,12 @@
 
 -(IBAction)linkBtnPressed:(id)sender
 {
-    ProductInfoViewController *productInfoViewController = [[ProductInfoViewController alloc] initWithNibName:@"ProductInfoViewController" bundle:nil];
-    self.passValueDelegate = productInfoViewController;//委托给productInfoViewController去实现其中的方法
-    NSMutableDictionary *valueDic = [[NSMutableDictionary alloc] initWithDictionary:[_dataArray objectAtIndex:[sender tag] - 100]];
-    [valueDic setValue:[[NSString alloc] initWithFormat:@"%d",1] forKey:@"MERCHANT_ID"];
-    [productInfoViewController passValue:valueDic];//productInfoViewController实现
-    [self.navigationController pushViewController:productInfoViewController animated:YES];
-}
-
-
--(void)searchBtnPressed
-{
-    //搜索商品
-    
+//    ProductInfoViewController *productInfoViewController = [[ProductInfoViewController alloc] initWithNibName:@"ProductInfoViewController" bundle:nil];
+//    self.passValueDelegate = productInfoViewController;//委托给productInfoViewController去实现其中的方法
+//    NSMutableDictionary *valueDic = [[NSMutableDictionary alloc] initWithDictionary:[_dataArray objectAtIndex:[sender tag] - 100]];
+//    [valueDic setValue:[[NSString alloc] initWithFormat:@"%d",_nowMerchantType] forKey:@"MERCHANT_ID"];
+//    [productInfoViewController passValue:valueDic];//productInfoViewController实现
+//    [self.navigationController pushViewController:productInfoViewController animated:YES];
 }
 
 @end

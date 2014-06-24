@@ -101,6 +101,9 @@
     [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [self.view addSubview:backButton];
     [backButton addTarget:self action:@selector(backToMainViewController) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *backButton1 = [[UIButton alloc]initWithFrame:CGRectMake(0, 20, 40, 44)];
+    [self.view addSubview:backButton1];
+    [backButton1 addTarget:self action:@selector(backToMainViewController) forControlEvents:UIControlEventTouchUpInside];
     //搜索框背景图片
     UIImageView *searchbar_bg = [[UIImageView alloc]initWithFrame:CGRectMake(40, 23, 270, 38)];
     [searchbar_bg setImage:[UIImage imageNamed:@"searchbar_bg"]];

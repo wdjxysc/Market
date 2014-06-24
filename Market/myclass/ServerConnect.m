@@ -486,7 +486,7 @@
     NSDictionary *dic;
     
     //http://192.168.110.36:8080/sys/tools_terminalGetTools?toolType=3&offset=0
-    NSString *url = [[NSString alloc]initWithFormat:@"http://192.168.110.36：8080/sys/tools_terminalGetTools?toolType=%d&offset=%d",tooltype,offset];
+    NSString *url = [[NSString alloc]initWithFormat:@"http://test.ebelter.com/sys/tools_terminalGetTools?toolType=%d&offset=%d",tooltype,offset];
     dic = [self getDictionaryByUrl:url];
     return dic;
 }
@@ -537,6 +537,7 @@
     array = [self getArrayByUrl:url];
     return array;
 }
+
 
 +(NSDictionary *)autoRegister
 {

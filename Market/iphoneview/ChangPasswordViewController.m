@@ -12,6 +12,7 @@
 #import "Regex.h"
 #import "SVProgressHUD.h"
 #import "MySingleton.h"
+#import "CheckCodeViewController.h"
 
 @interface ChangPasswordViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -108,10 +109,10 @@
     NSDictionary *dic = [ServerConnect getCheckCodeByEmail:emailstr];
     if([[dic valueForKey:@"success"] intValue] == 1)
     {
-//        [[MySingleton sharedSingleton].nowuserinfo setObject:emailstr forKey:@"UserName"];
-//        //跳转页面
-//        CheckCodeViewController *checkCodeViewController = [[CheckCodeViewController alloc] initWithNibName:@"CheckCodeViewController" bundle:nil];
-//        [self.navigationController pushViewController:checkCodeViewController animated:YES];
+        [[MySingleton sharedSingleton].nowuserinfo setObject:emailstr forKey:@"UserName"];
+        //跳转页面
+        CheckCodeViewController *checkCodeViewController = [[CheckCodeViewController alloc] initWithNibName:@"CheckCodeViewController" bundle:nil];
+        [self.navigationController pushViewController:checkCodeViewController animated:YES];
     }
     else
     {

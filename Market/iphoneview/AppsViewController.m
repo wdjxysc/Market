@@ -87,17 +87,19 @@
     [self.view addSubview:topImageView];
     //返回按钮
     UIButton *backButton = [[UIButton alloc]initWithFrame:CGRectMake(15, 34, 9, 16)];
-//    [backButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [self.view addSubview:backButton];
-    [backButton addTarget:self action:@selector(backToMainViewController) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *backButton1 = [[UIButton alloc]initWithFrame:CGRectMake(0, 20, 40, 44)];
+    [self.view addSubview:backButton1];
+    [backButton1 addTarget:self action:@selector(backToMainViewController) forControlEvents:UIControlEventTouchUpInside];
     //搜索框背景图片
     UIImageView *searchbar_bg = [[UIImageView alloc]initWithFrame:CGRectMake(40, 23, 270, 38)];
     [searchbar_bg setImage:[UIImage imageNamed:@"searchbar_bg"]];
     
     //搜索图标
-    UIImageView *searchbar_icon = [[UIImageView alloc] initWithFrame:CGRectMake(10+ searchbar_bg.frame.origin.x, 10 + searchbar_bg.frame.origin.y, 19, 19)];
-    [searchbar_icon setImage:[UIImage imageNamed:@"searchbar_icon"]];
+    UIButton *searchBtn = [[UIButton alloc]initWithFrame:CGRectMake(10+ searchbar_bg.frame.origin.x, 10 + searchbar_bg.frame.origin.y, 19, 19)];
+    [searchBtn setBackgroundImage:[UIImage imageNamed:@"searchbar_icon"] forState:UIControlStateNormal];
+    [searchBtn addTarget:self action:@selector(searchBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     //搜索栏textfield
     UITextField *searchbar_textfield = [[UITextField alloc]initWithFrame:CGRectMake(40 + searchbar_bg.frame.origin.x, searchbar_bg.frame.origin.y, 190, 38)];
     [searchbar_textfield setPlaceholder:NSLocalizedString(@"SEARCH", @"搜索")];
@@ -109,7 +111,7 @@
     
     [self.view addSubview:searchbar_bg];
     [self.view addSubview:qrBtn];
-    [self.view addSubview:searchbar_icon];
+    [self.view addSubview:searchBtn];
     [self.view addSubview:searchbar_textfield];
     
     CGRect tableviewrect = CGRectMake(5, 69, 310, 370);
@@ -203,8 +205,8 @@
 
 -(IBAction)downloadBtnPressed:(id)sender
 {
-//    NSString *urlStr = [[_dataArray objectAtIndex:[sender tag] - 100] valueForKey:@"fileName"];
-    NSString *urlStr = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/us/app/id%@?mt=8", @"873874226"];
+    NSString *urlStr = [[_dataArray objectAtIndex:[sender tag] - 100] valueForKey:@"fileName"];
+//    NSString *urlStr = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/us/app/id%@?mt=8", @"873874226"];
     NSURL *url = [NSURL URLWithString:urlStr];
     [[UIApplication sharedApplication] openURL:url];
     
@@ -213,5 +215,8 @@
     //https://itunes.apple.com/cn/app/ehealth-pro-e-jian-kang/id726122320?mt=8
 }
 
-
+-(void)searchBtnPressed
+{
+    //搜索app
+}
 @end

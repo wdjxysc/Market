@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "LoginViewController.h"
+#import "LoginViewControllerTM.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) LoginViewController *loginViewController;
+@property (strong, nonatomic) LoginViewControllerTM *loginViewControllerTM;
 
 @end

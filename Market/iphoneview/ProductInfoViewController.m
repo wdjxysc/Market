@@ -69,6 +69,11 @@
     [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [self.view addSubview:backButton];
     [backButton addTarget:self action:@selector(backToMainViewController) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *backButton1 = [[UIButton alloc]initWithFrame:CGRectMake(0, 20, 40, 44)];
+    [self.view addSubview:backButton1];
+    [backButton1 addTarget:self action:@selector(backToMainViewController) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     CGRect webViewRect = CGRectMake(0, 64, 320, 367);
     if(iPhone5){
         webViewRect = CGRectMake(0, 64, 320, 367 + 88);

@@ -12,6 +12,7 @@
 #import "UserViewController.h"
 #import "PostViewController.h"
 #import "MySingleton.h"
+#import "ServerConnect.h"
 
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 #define Screen_height   [[UIScreen mainScreen] bounds].size.height
@@ -52,6 +53,7 @@
     
 }
 
+
 -(void)initMyView
 {
     [_loginBtn addTarget:self action:@selector(loginBtnPressed) forControlEvents:UIControlEventTouchUpInside];
@@ -60,10 +62,24 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
+
 -(void)loginBtnPressed
 {
+    //随机注册一个账号
+    [self registRandomAccount];
+    
     [self showMainView];
 }
+
+
+-(void)registRandomAccount
+{
+    NSDictionary *dic = [ServerConnect autoRegister];
+    [[MySingleton sharedSingleton].nowuserinfo setValue:[dic valueForKey:@"nickname"] forKey:@"UserName"];
+    [[MySingleton sharedSingleton].nowuserinfo setValue:[dic valueForKey:@"pwd"] forKey:@"PassWord"];
+    [[MySingleton sharedSingleton].nowuserinfo setValue:[dic valueForKey:@"authkey"] forKey:@"AuthKey"];
+}
+
 
 -(void)showMainView
 {

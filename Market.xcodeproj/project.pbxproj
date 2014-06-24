@@ -124,6 +124,12 @@
 		64AF26041949A182009572E5 /* XmlTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 64AF25FD1949A182009572E5 /* XmlTool.m */; };
 		64AF2608194AEFD7009572E5 /* GoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64AF2606194AEFD7009572E5 /* GoodsTableViewCell.m */; };
 		64AF2609194AEFD7009572E5 /* GoodsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AF2607194AEFD7009572E5 /* GoodsTableViewCell.xib */; };
+		64B0769019581A5400AE9887 /* CheckCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B0768B19581A5400AE9887 /* CheckCodeViewController.m */; };
+		64B0769119581A5400AE9887 /* CheckCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B0768C19581A5400AE9887 /* CheckCodeViewController.xib */; };
+		64B0769219581A5400AE9887 /* NewPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B0768E19581A5400AE9887 /* NewPasswordViewController.m */; };
+		64B0769319581A5400AE9887 /* NewPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B0768F19581A5400AE9887 /* NewPasswordViewController.xib */; };
+		64B07697195827C000AE9887 /* MyAttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B07695195827C000AE9887 /* MyAttentionViewController.m */; };
+		64B07698195827C000AE9887 /* MyAttentionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B07696195827C000AE9887 /* MyAttentionViewController.xib */; };
 		64B29C741948217600AC5FAB /* AppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B29C721948217600AC5FAB /* AppsViewController.m */; };
 		64B29C751948217600AC5FAB /* AppsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B29C731948217600AC5FAB /* AppsViewController.xib */; };
 		64B29C791948223500AC5FAB /* GoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B29C771948223500AC5FAB /* GoodsViewController.m */; };
@@ -297,6 +303,15 @@
 		64AF2605194AEFD7009572E5 /* GoodsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsTableViewCell.h; path = iphoneview/GoodsTableViewCell.h; sourceTree = "<group>"; };
 		64AF2606194AEFD7009572E5 /* GoodsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsTableViewCell.m; path = iphoneview/GoodsTableViewCell.m; sourceTree = "<group>"; };
 		64AF2607194AEFD7009572E5 /* GoodsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoodsTableViewCell.xib; path = iphoneview/GoodsTableViewCell.xib; sourceTree = "<group>"; };
+		64B0768A19581A5400AE9887 /* CheckCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckCodeViewController.h; path = iphoneview/CheckCodeViewController.h; sourceTree = "<group>"; };
+		64B0768B19581A5400AE9887 /* CheckCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckCodeViewController.m; path = iphoneview/CheckCodeViewController.m; sourceTree = "<group>"; };
+		64B0768C19581A5400AE9887 /* CheckCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CheckCodeViewController.xib; path = iphoneview/CheckCodeViewController.xib; sourceTree = "<group>"; };
+		64B0768D19581A5400AE9887 /* NewPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewPasswordViewController.h; path = iphoneview/NewPasswordViewController.h; sourceTree = "<group>"; };
+		64B0768E19581A5400AE9887 /* NewPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewPasswordViewController.m; path = iphoneview/NewPasswordViewController.m; sourceTree = "<group>"; };
+		64B0768F19581A5400AE9887 /* NewPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewPasswordViewController.xib; path = iphoneview/NewPasswordViewController.xib; sourceTree = "<group>"; };
+		64B07694195827C000AE9887 /* MyAttentionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyAttentionViewController.h; path = iphoneview/MyAttentionViewController.h; sourceTree = "<group>"; };
+		64B07695195827C000AE9887 /* MyAttentionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyAttentionViewController.m; path = iphoneview/MyAttentionViewController.m; sourceTree = "<group>"; };
+		64B07696195827C000AE9887 /* MyAttentionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyAttentionViewController.xib; path = iphoneview/MyAttentionViewController.xib; sourceTree = "<group>"; };
 		64B29C701948097300AC5FAB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		64B29C711948217600AC5FAB /* AppsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppsViewController.h; path = iphoneview/AppsViewController.h; sourceTree = "<group>"; };
 		64B29C721948217600AC5FAB /* AppsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppsViewController.m; path = iphoneview/AppsViewController.m; sourceTree = "<group>"; };
@@ -508,6 +523,12 @@
 		645132C81945A6F9002A0B1B /* iphoneview */ = {
 			isa = PBXGroup;
 			children = (
+				64B0768A19581A5400AE9887 /* CheckCodeViewController.h */,
+				64B0768B19581A5400AE9887 /* CheckCodeViewController.m */,
+				64B0768C19581A5400AE9887 /* CheckCodeViewController.xib */,
+				64B0768D19581A5400AE9887 /* NewPasswordViewController.h */,
+				64B0768E19581A5400AE9887 /* NewPasswordViewController.m */,
+				64B0768F19581A5400AE9887 /* NewPasswordViewController.xib */,
 				648270F719528888005B057C /* ChangPasswordViewController.h */,
 				648270F819528888005B057C /* ChangPasswordViewController.m */,
 				648270F919528888005B057C /* ChangPasswordViewController.xib */,
@@ -553,6 +574,9 @@
 				64588CD3194EFBEC008C9561 /* ProductInfoViewController.h */,
 				64588CD4194EFBEC008C9561 /* ProductInfoViewController.m */,
 				64588CD5194EFBEC008C9561 /* ProductInfoViewController.xib */,
+				64B07694195827C000AE9887 /* MyAttentionViewController.h */,
+				64B07695195827C000AE9887 /* MyAttentionViewController.m */,
+				64B07696195827C000AE9887 /* MyAttentionViewController.xib */,
 			);
 			name = iphoneview;
 			sourceTree = "<group>";
@@ -877,6 +901,7 @@
 				64AEDA39195135F300C8E651 /* PinterestSDKResources.bundle in Resources */,
 				648270F6195286FF005B057C /* RegistEmailViewControllerTM.xib in Resources */,
 				64BB16141946A07400E5CE82 /* PostViewController.xib in Resources */,
+				64B0769119581A5400AE9887 /* CheckCodeViewController.xib in Resources */,
 				648270EA195284DF005B057C /* LoginViewControllerTM_4Inch.xib in Resources */,
 				64BB160519469F8D00E5CE82 /* LoginViewController.xib in Resources */,
 				645132A11945A2B3002A0B1B /* Main.storyboard in Resources */,
@@ -899,8 +924,10 @@
 				64AEDA4B195135F300C8E651 /* ShareSDKiPhoneDefaultShareViewUI.bundle in Resources */,
 				64BB160A1946A00100E5CE82 /* SearchViewController.xib in Resources */,
 				64B29C7A1948223500AC5FAB /* GoodsViewController.xib in Resources */,
+				64B07698195827C000AE9887 /* MyAttentionViewController.xib in Resources */,
 				64AEDA3B195135F300C8E651 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				64AEDA33195135F300C8E651 /* Resource.bundle in Resources */,
+				64B0769319581A5400AE9887 /* NewPasswordViewController.xib in Resources */,
 				64AF2609194AEFD7009572E5 /* GoodsTableViewCell.xib in Resources */,
 				64AF25EE194991FE009572E5 /* AppsTableViewCell.xib in Resources */,
 				64AEDA3F195135F300C8E651 /* WeiboSDK.bundle in Resources */,
@@ -925,6 +952,7 @@
 				64AF26031949A182009572E5 /* WQPlaySound.m in Sources */,
 				64AF2608194AEFD7009572E5 /* GoodsTableViewCell.m in Sources */,
 				64BB160E1946A01800E5CE82 /* UserViewController.m in Sources */,
+				64B0769219581A5400AE9887 /* NewPasswordViewController.m in Sources */,
 				648270FA19528888005B057C /* ChangPasswordViewController.m in Sources */,
 				645132A41945A2B3002A0B1B /* ViewController.m in Sources */,
 				64B29C741948217600AC5FAB /* AppsViewController.m in Sources */,
@@ -934,8 +962,10 @@
 				64B29C791948223500AC5FAB /* GoodsViewController.m in Sources */,
 				64AF25FE1949A182009572E5 /* DataParseTool.m in Sources */,
 				64588CD6194EFBEC008C9561 /* ProductInfoViewController.m in Sources */,
+				64B07697195827C000AE9887 /* MyAttentionViewController.m in Sources */,
 				6451329E1945A2B3002A0B1B /* AppDelegate.m in Sources */,
 				648270EB195284DF005B057C /* LoginViewControllerTM.m in Sources */,
+				64B0769019581A5400AE9887 /* CheckCodeViewController.m in Sources */,
 				64AF26041949A182009572E5 /* XmlTool.m in Sources */,
 				64AF26001949A182009572E5 /* MySingleton.m in Sources */,
 				64AF25FF1949A182009572E5 /* EoceneServerConnect.m in Sources */,
