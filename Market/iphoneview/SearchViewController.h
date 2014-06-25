@@ -14,5 +14,7 @@
 @property(retain,nonatomic)NSMutableArray *dataArray;
 @property int selectCellIndex;
 
+@property(retain,nonatomic)UITextField *searchbar_textfield;
+
 @property(retain,nonatomic)NSObject<UIViewPassValueDelegate> *passValueDelegate;
 @end

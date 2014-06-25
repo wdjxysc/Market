@@ -67,113 +67,114 @@
     userBgImageView.image = [UIImage imageNamed:@"user_bg"];
     UIImageView *userHeadImageView = [[UIImageView alloc] initWithFrame:CGRectMake(25, 94, 70, 70)];
     userHeadImageView.image = [UIImage imageNamed:@"userhead"];
-    UILabel *usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(110, 109, 160, 20)];
+    UILabel *usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(110, 109, 200, 20)];
+    usernameLabel.text = @"用户名：";
+    UILabel *passwordLabel = [[UILabel alloc] initWithFrame:CGRectMake(110, 129, 200, 20)];
+    passwordLabel.text = [[NSString alloc] initWithFormat:@"密码：******"];
     if([[MySingleton sharedSingleton].nowuserinfo valueForKey:@"UserName"] != nil){
-    usernameLabel.text = [[NSString alloc] initWithFormat:@"用户名：%@",[[MySingleton sharedSingleton].nowuserinfo valueForKey:@"UserName"]];
+        passwordLabel.text = [[NSString alloc] initWithFormat:@"%@",[[MySingleton sharedSingleton].nowuserinfo valueForKey:@"UserName"]];
     }
     else{usernameLabel.text = @"用户名：guest";}
-    UILabel *passwordLabel = [[UILabel alloc] initWithFrame:CGRectMake(110, 129, 160, 20)];
-    passwordLabel.text = [[NSString alloc] initWithFormat:@"密码：******"];
     [self.view addSubview:userBgImageView];
     [self.view addSubview:userHeadImageView];
     [self.view addSubview:usernameLabel];
     [self.view addSubview:passwordLabel];
     
     
-//    //选项
-//    UIImageView *line1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 210, 320, 1)];
-//    line1.image = [UIImage imageNamed:@"longline"];
-//    [self.view addSubview:line1];
-//    UIImageView *line2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 250, 320, 1)];
-//    line2.image = [UIImage imageNamed:@"longline"];
-//    [self.view addSubview:line2];
-////    UIImageView *line3 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 290, 320, 1)];
-////    line3.image = [UIImage imageNamed:@"longline"];
-////    [self.view addSubview:line3];
-//    
-//    UIImageView *xiangBg1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 210, 320, 40)];
-//    xiangBg1.image = [UIImage imageNamed:@"input_bg"];
-//    UILabel *xiangLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(20, 220, 320, 20)];
-//    xiangLabel1.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1.0];
-//    xiangLabel1.text = @"订单查询";
-//    UIImageView *arrow1 = [[UIImageView alloc] initWithFrame:CGRectMake(290, 222, 9, 16)];
-//    [arrow1 setImage:[UIImage imageNamed:@"arrow_right"]];
-//    UIButton *button1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 210, 320, 40)];
-//    [button1 addTarget:self action:@selector(orderBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:xiangBg1];
-//    [self.view addSubview:xiangLabel1];
-//    [self.view addSubview:arrow1];
-//    [self.view addSubview:button1];
-//    
-//    UIImageView *xiangBg2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 250, 320, 40)];
-//    xiangBg2.image = [UIImage imageNamed:@"input_bg"];
-//    UILabel *xiangLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(20, 260, 320, 20)];
-//    xiangLabel2.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1.0];
-//    xiangLabel2.text = @"优惠券";
-//    UIImageView *arrow2 = [[UIImageView alloc] initWithFrame:CGRectMake(290, 262, 9, 16)];
-//    [arrow2 setImage:[UIImage imageNamed:@"arrow_right"]];
-//    UIButton *button2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 250, 320, 40)];
-//    [button2 addTarget:self action:@selector(couponsBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:xiangBg2];
-//    [self.view addSubview:xiangLabel2];
-//    [self.view addSubview:arrow2];
-//    [self.view addSubview:button2];
-//    
-//    
-//    UIImageView *line4 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 305, 320, 1)];
-//    line4.image = [UIImage imageNamed:@"longline"];
-//    [self.view addSubview:line4];
-//    UIImageView *line5 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 345, 320, 1)];
-//    line5.image = [UIImage imageNamed:@"longline"];
-//    [self.view addSubview:line5];
-//    UIImageView *line6 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 385, 320, 1)];
-//    line6.image = [UIImage imageNamed:@"longline"];
-//    [self.view addSubview:line6];
-////    UIImageView *line7 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 425, 320, 1)];
-////    line7.image = [UIImage imageNamed:@"longline"];
-////    [self.view addSubview:line7];
-//    
-//    UIImageView *xiangBg3 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 305, 320, 40)];
-//    xiangBg3.image = [UIImage imageNamed:@"input_bg"];
-//    UILabel *xiangLabel3 = [[UILabel alloc] initWithFrame:CGRectMake(20, 315, 200, 20)];
-//    xiangLabel3.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1.0];
-//    xiangLabel3.text = @"我的关注";
-//    UIImageView *arrow3 = [[UIImageView alloc] initWithFrame:CGRectMake(290, 317, 9, 16)];
-//    [arrow3 setImage:[UIImage imageNamed:@"arrow_right"]];
-//    UIButton *button3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 305, 320, 40)];
-//    [button3 addTarget:self action:@selector(attentionBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:xiangBg3];
-//    [self.view addSubview:xiangLabel3];
-//    [self.view addSubview:arrow3];
-//    [self.view addSubview:button3];
-//    
-//    UIImageView *xiangBg4 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 345, 320, 40)];
-//    xiangBg4.image = [UIImage imageNamed:@"input_bg"];
-//    UILabel *xiangLabel4 = [[UILabel alloc] initWithFrame:CGRectMake(20, 355, 320, 20)];
-//    xiangLabel4.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1.0];
-//    xiangLabel4.text = @"我的消息";
-//    UIImageView *arrow4 = [[UIImageView alloc] initWithFrame:CGRectMake(290, 357, 9, 16)];
-//    [arrow4 setImage:[UIImage imageNamed:@"arrow_right"]];
-//    UIButton *button4 = [[UIButton alloc] initWithFrame:CGRectMake(0, 345, 320, 40)];
-//    [button4 addTarget:self action:@selector(massageBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:xiangBg4];
-//    [self.view addSubview:xiangLabel4];
-//    [self.view addSubview:arrow4];
-//    [self.view addSubview:button4];
-//    
-//    UIImageView *xiangBg5 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 385, 320, 40)];
-//    xiangBg5.image = [UIImage imageNamed:@"input_bg"];
-//    UILabel *xiangLabel5 = [[UILabel alloc] initWithFrame:CGRectMake(20, 395, 320, 20)];
-//    xiangLabel5.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1.0];
-//    xiangLabel5.text = @"浏览记录";
-//    UIImageView *arrow5 = [[UIImageView alloc] initWithFrame:CGRectMake(290, 397, 9, 16)];
-//    [arrow5 setImage:[UIImage imageNamed:@"arrow_right"]];
-//    UIButton *button5 = [[UIButton alloc] initWithFrame:CGRectMake(0, 385, 320, 40)];
-//    [button5 addTarget:self action:@selector(browseBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:xiangBg5];
-//    [self.view addSubview:xiangLabel5];
-//    [self.view addSubview:arrow5];
-//    [self.view addSubview:button5];
+    //选项
+    UIImageView *line1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 210, 320, 1)];
+    line1.image = [UIImage imageNamed:@"longline"];
+    [self.view addSubview:line1];
+    UIImageView *line2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 250, 320, 1)];
+    line2.image = [UIImage imageNamed:@"longline"];
+    [self.view addSubview:line2];
+//    UIImageView *line3 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 290, 320, 1)];
+//    line3.image = [UIImage imageNamed:@"longline"];
+//    [self.view addSubview:line3];
+    
+    UIImageView *xiangBg1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 210, 320, 40)];
+    xiangBg1.image = [UIImage imageNamed:@"input_bg"];
+    UILabel *xiangLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(20, 220, 320, 20)];
+    xiangLabel1.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1.0];
+    xiangLabel1.text = @"订单查询";
+    UIImageView *arrow1 = [[UIImageView alloc] initWithFrame:CGRectMake(290, 222, 9, 16)];
+    [arrow1 setImage:[UIImage imageNamed:@"arrow_right"]];
+    UIButton *button1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 210, 320, 40)];
+    [button1 addTarget:self action:@selector(orderBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:xiangBg1];
+    [self.view addSubview:xiangLabel1];
+    [self.view addSubview:arrow1];
+    [self.view addSubview:button1];
+    
+    UIImageView *xiangBg2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 250, 320, 40)];
+    xiangBg2.image = [UIImage imageNamed:@"input_bg"];
+    UILabel *xiangLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(20, 260, 320, 20)];
+    xiangLabel2.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1.0];
+    xiangLabel2.text = @"优惠券";
+    UIImageView *arrow2 = [[UIImageView alloc] initWithFrame:CGRectMake(290, 262, 9, 16)];
+    [arrow2 setImage:[UIImage imageNamed:@"arrow_right"]];
+    UIButton *button2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 250, 320, 40)];
+    [button2 addTarget:self action:@selector(couponsBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:xiangBg2];
+    [self.view addSubview:xiangLabel2];
+    [self.view addSubview:arrow2];
+    [self.view addSubview:button2];
+    
+    
+    UIImageView *line4 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 305, 320, 1)];
+    line4.image = [UIImage imageNamed:@"longline"];
+    [self.view addSubview:line4];
+    UIImageView *line5 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 345, 320, 1)];
+    line5.image = [UIImage imageNamed:@"longline"];
+    [self.view addSubview:line5];
+    UIImageView *line6 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 385, 320, 1)];
+    line6.image = [UIImage imageNamed:@"longline"];
+    [self.view addSubview:line6];
+//    UIImageView *line7 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 425, 320, 1)];
+//    line7.image = [UIImage imageNamed:@"longline"];
+//    [self.view addSubview:line7];
+    
+    UIImageView *xiangBg3 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 305, 320, 40)];
+    xiangBg3.image = [UIImage imageNamed:@"input_bg"];
+    UILabel *xiangLabel3 = [[UILabel alloc] initWithFrame:CGRectMake(20, 315, 200, 20)];
+    xiangLabel3.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1.0];
+    xiangLabel3.text = @"我的关注";
+    UIImageView *arrow3 = [[UIImageView alloc] initWithFrame:CGRectMake(290, 317, 9, 16)];
+    [arrow3 setImage:[UIImage imageNamed:@"arrow_right"]];
+    UIButton *button3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 305, 320, 40)];
+    [button3 addTarget:self action:@selector(attentionBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:xiangBg3];
+    [self.view addSubview:xiangLabel3];
+    [self.view addSubview:arrow3];
+    [self.view addSubview:button3];
+    
+    UIImageView *xiangBg4 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 345, 320, 40)];
+    xiangBg4.image = [UIImage imageNamed:@"input_bg"];
+    UILabel *xiangLabel4 = [[UILabel alloc] initWithFrame:CGRectMake(20, 355, 320, 20)];
+    xiangLabel4.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1.0];
+    xiangLabel4.text = @"我的消息";
+    UIImageView *arrow4 = [[UIImageView alloc] initWithFrame:CGRectMake(290, 357, 9, 16)];
+    [arrow4 setImage:[UIImage imageNamed:@"arrow_right"]];
+    UIButton *button4 = [[UIButton alloc] initWithFrame:CGRectMake(0, 345, 320, 40)];
+    [button4 addTarget:self action:@selector(massageBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:xiangBg4];
+    [self.view addSubview:xiangLabel4];
+    [self.view addSubview:arrow4];
+    [self.view addSubview:button4];
+    
+    UIImageView *xiangBg5 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 385, 320, 40)];
+    xiangBg5.image = [UIImage imageNamed:@"input_bg"];
+    UILabel *xiangLabel5 = [[UILabel alloc] initWithFrame:CGRectMake(20, 395, 320, 20)];
+    xiangLabel5.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1.0];
+    xiangLabel5.text = @"浏览记录";
+    UIImageView *arrow5 = [[UIImageView alloc] initWithFrame:CGRectMake(290, 397, 9, 16)];
+    [arrow5 setImage:[UIImage imageNamed:@"arrow_right"]];
+    UIButton *button5 = [[UIButton alloc] initWithFrame:CGRectMake(0, 385, 320, 40)];
+    [button5 addTarget:self action:@selector(browseBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:xiangBg5];
+    [self.view addSubview:xiangLabel5];
+    [self.view addSubview:arrow5];
+    [self.view addSubview:button5];
 }
 
 -(void)orderBtnPressed

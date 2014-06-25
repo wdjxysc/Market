@@ -111,6 +111,7 @@
     UITextField *searchbar_textfield = [[UITextField alloc]initWithFrame:CGRectMake(40 + searchbar_bg.frame.origin.x, searchbar_bg.frame.origin.y, 190, 38)];
     [searchbar_textfield setPlaceholder:NSLocalizedString(@"SEARCH", @"搜索")];
     searchbar_textfield.delegate = self;
+    _searchbar_textfield = searchbar_textfield;
     //二维码图标
     UIButton *qrBtn = [[UIButton alloc] initWithFrame:CGRectMake(238+ searchbar_bg.frame.origin.x, 6 + searchbar_bg.frame.origin.y, 26, 26)];
     [qrBtn setBackgroundImage:[UIImage imageNamed:@"qr"] forState:UIControlStateNormal];
@@ -273,7 +274,24 @@
 -(void)searchBtnPressed
 {
     //搜索商品
-    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        //从服务器获取商品列表
+        NSArray *array = [ServerConnect getProductList:_searchbar_textfield.text merchant_id:@""];
+        if(array && [array count]!=0)
+        {
+            _dataArray = [array[0] valueForKey:@"RESULT_INFO"];
+        }
+        
+        if (array) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_tableView reloadData];
+            });
+        }
+        else {
+            NSLog(@"-- impossible download");
+        }
+    });
 }
 
 @end

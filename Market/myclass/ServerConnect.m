@@ -549,6 +549,35 @@
 }
 
 
++(NSDictionary *)uploadHistoryScan : (NSString *)authkey time:(NSDate *)time linkurl:(NSString *)linkurl pro:(NSString *)pro
+{
+    NSDictionary *dic;
+    
+    //http://localhost:8080/sys/service_uploadHistoryScan?authkey=MDU4ZGI3YmJjNDVlNGQyZGI0MDY5NjZkYmRhZmM4YjIjMjAxNC0wNi0xMCAxNzowNjoyOSMxOCN6%0D%0AaF9DTg%3D%3D&time=2014-01-20%2012:11:20&url=100&pro=1220
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *timeStr = [formatter stringFromDate:time];
+    NSString *url = [[NSString alloc]initWithFormat:@"http://test.ebelter.com/sys/service_uploadHistoryScan?authkey=%@&time=%@&url=%@&pro=%@",authkey,timeStr,linkurl,pro];
+    dic = [self getDictionaryByUrl:url];
+    return dic;
+}
+
++(NSDictionary *)getHistoryScan :(NSString *)authkey number : (int)number date:(NSDate *)date
+{
+    NSDictionary *dic;
+    
+    //http://localhost:8080/sys/service_getHistoryScan?authkey=MDU4ZGI3YmJjNDVlNGQyZGI0MDY5NjZkYmRhZmM4YjIjMjAxNC0wNi0xMCAxNzowNjoyOSMxOCN6%0D%0AaF9DTg%3D%3D&number=5
+    NSString *timeStr = @"";
+    if(date!= nil){
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        timeStr = [formatter stringFromDate:date];
+    }
+    NSString *url = [[NSString alloc]initWithFormat:@"http://test.ebelter.com/sys/service_getHistoryScan?authkey=%@&number=%d&date=%@",authkey,number,timeStr];
+    dic = [self getDictionaryByUrl:url];
+    return dic;
+}
+
 //根据url获取数组返回
 +(NSArray *)getArrayByUrl:(NSString *)url
 {

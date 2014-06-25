@@ -104,4 +104,33 @@
 //你的登录名 nickname 密码 pwd
 //{"success":true,"authkey":"ZWM3MTBkYjIzZGIzNDc0NGFjMWUwZTdjOWEzZWViMmEjMjAxNC0wNi0xOCAxNzowNDozOSMxOCN6%0D%0AaF9DTg%3D%3D","username":"s1403082279464","nickname":"q25LMYw5","pwd":"666666"}
 +(NSDictionary *)autoRegister;
+
+
+//浏览记录接口协议
+//1.上传数据
+//数据字段说明:
+//authkey(登录获取 必填,非空)
+//time(当前本地时间 必填,非空)
+//url(浏览的链接url 必填,非空)
+//pro(链接描述 必填,非空)
+//result_code 说明:
+//10 服务器异常, 1: 参数错误 2:数据入库错误  0:成功 3:授权key不合法
+//接口实例:
+//http://localhost:8080/sys/service_uploadHistoryScan?authkey=MDU4ZGI3YmJjNDVlNGQyZGI0MDY5NjZkYmRhZmM4YjIjMjAxNC0wNi0xMCAxNzowNjoyOSMxOCN6%0D%0AaF9DTg%3D%3D&time=2014-01-20%2012:11:20&url=100&pro=1220
+//正确返回:{"RESULT_MSG":"上传成功","RESULT_CODE":"0"}
++(NSDictionary *)uploadHistoryScan : (NSString *)authkey time:(NSDate *)time url:(NSString *)url pro:(NSString *)pro;
+
+
+//2.查询
+//数据字段说明:
+//authkey(登录获取 必填,非空)
+//number(几条为一页 必填.非空)
+//date(日期,哪一天的记录, 可选)
+//result_code 说明:
+//10: 服务器错误  0:成功 1:参数错误 2:数据库操作异常 3:授权key不合法 4:不存在这个用户
+//接口实例:
+//http://localhost:8080/sys/service_getHistoryScan?authkey=MDU4ZGI3YmJjNDVlNGQyZGI0MDY5NjZkYmRhZmM4YjIjMjAxNC0wNi0xMCAxNzowNjoyOSMxOCN6%0D%0AaF9DTg%3D%3D&number=5
+//正确返回:
+//{"RESULT_MSG":"操作成功","RESULT_CODE":"0","RESULT_INFO":{"count":2,"historyInfo":[{"callbacks":[{}],"id":"058db7bbc45e4d2db406966dbdafc8b2","prospectus":"1220","status":"0","time":"2014-01-20 12:11:20","url":"100"},{"callbacks":[{}],"id":"058db7bbc45e4d2db406966dbdafc8b2","prospectus":"200202","status":"0","time":"2014-01-20 12:11:20","url":"020"}]}}
++(NSDictionary *)getHistoryScan :(NSString *)authkey number : (int)number date:(NSDate *)date;
 @end

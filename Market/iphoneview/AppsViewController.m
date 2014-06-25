@@ -205,7 +205,7 @@
 
 -(IBAction)downloadBtnPressed:(id)sender
 {
-    NSString *urlStr = [[_dataArray objectAtIndex:[sender tag] - 100] valueForKey:@"fileName"];
+    NSString *urlStr = [[_dataArray objectAtIndex:[sender tag] - 100] valueForKey:@"address"];
 //    NSString *urlStr = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/us/app/id%@?mt=8", @"873874226"];
     NSURL *url = [NSURL URLWithString:urlStr];
     [[UIApplication sharedApplication] openURL:url];
@@ -218,5 +218,6 @@
 -(void)searchBtnPressed
 {
     //搜索app
+    
 }
 @end

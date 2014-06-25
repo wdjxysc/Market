@@ -109,12 +109,14 @@
     [searchbar_bg setImage:[UIImage imageNamed:@"searchbar_bg"]];
     
     //搜索图标
-    UIImageView *searchbar_icon = [[UIImageView alloc] initWithFrame:CGRectMake(10+ searchbar_bg.frame.origin.x, 10 + searchbar_bg.frame.origin.y, 19, 19)];
-    [searchbar_icon setImage:[UIImage imageNamed:@"searchbar_icon"]];
+    UIButton *searchBtn = [[UIButton alloc]initWithFrame:CGRectMake(10+ searchbar_bg.frame.origin.x, 10 + searchbar_bg.frame.origin.y, 19, 19)];
+    [searchBtn setBackgroundImage:[UIImage imageNamed:@"searchbar_icon"] forState:UIControlStateNormal];
+    [searchBtn addTarget:self action:@selector(searchBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     //搜索栏textfield
     UITextField *searchbar_textfield = [[UITextField alloc]initWithFrame:CGRectMake(40 + searchbar_bg.frame.origin.x, searchbar_bg.frame.origin.y, 190, 38)];
     [searchbar_textfield setPlaceholder:NSLocalizedString(@"SEARCH", @"搜索")];
     searchbar_textfield.delegate = self;
+    _searchbar_textfield = searchbar_textfield;
     //二维码图标
     UIButton *qrBtn = [[UIButton alloc] initWithFrame:CGRectMake(238+ searchbar_bg.frame.origin.x, 6 + searchbar_bg.frame.origin.y, 26, 26)];
     [qrBtn setBackgroundImage:[UIImage imageNamed:@"qr"] forState:UIControlStateNormal];
@@ -122,7 +124,7 @@
     
     [self.view addSubview:searchbar_bg];
     [self.view addSubview:qrBtn];
-    [self.view addSubview:searchbar_icon];
+    [self.view addSubview:searchBtn];
     [self.view addSubview:searchbar_textfield];
     
     //商城选项卡scrollView
@@ -443,6 +445,28 @@
     //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/jing-dong-hd/id434374726?mt=8"]];
     //https://itunes.apple.com/cn/app/bei-tai-yun-jian-kang/id873874226?mt=8
     //https://itunes.apple.com/cn/app/ehealth-pro-e-jian-kang/id726122320?mt=8
+}
+
+-(void)searchBtnPressed
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        //从服务器获取商品列表
+        NSArray *array = [ServerConnect getProductList:_searchbar_textfield.text merchant_id:[[NSString alloc] initWithFormat:@"%d",_nowMerchantType]];
+        if(array && [array count]!=0)
+        {
+            _dataArray = [array[0] valueForKey:@"RESULT_INFO"];
+        }
+        
+        if (array) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_tableView reloadData];
+            });
+        }
+        else {
+            NSLog(@"-- impossible download");
+        }
+    });
 }
 
 

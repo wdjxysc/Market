@@ -16,6 +16,8 @@
 @property int nowMerchantType;
 @property int selectCellIndex;
 
+@property(retain,nonatomic)UITextField *searchbar_textfield;
+
 @property(retain,nonatomic)UIButton *taobaoBtn;
 @property(retain,nonatomic)UIButton *jingdongBtn;
 @property(retain,nonatomic)UIButton *aikangBtn;

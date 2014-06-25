@@ -143,6 +143,8 @@
 		64BB16131946A07400E5CE82 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BB16111946A07400E5CE82 /* PostViewController.m */; };
 		64BB16141946A07400E5CE82 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BB16121946A07400E5CE82 /* PostViewController.xib */; };
 		64BB16171946AEE400E5CE82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64BB16191946AEE400E5CE82 /* Localizable.strings */; };
+		64C3F718195A65EE00E46F42 /* BrowseHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C3F716195A65EE00E46F42 /* BrowseHistoryViewController.m */; };
+		64C3F719195A65EE00E46F42 /* BrowseHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3F717195A65EE00E46F42 /* BrowseHistoryViewController.xib */; };
 		64CFFD4C195426F900618433 /* GoodsDetailedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CFFD4A195426F900618433 /* GoodsDetailedTableViewCell.m */; };
 		64CFFD4D195426F900618433 /* GoodsDetailedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64CFFD4B195426F900618433 /* GoodsDetailedTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -333,6 +335,9 @@
 		64BB16121946A07400E5CE82 /* PostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostViewController.xib; path = iphoneview/PostViewController.xib; sourceTree = "<group>"; };
 		64BB161A1946AEED00E5CE82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		64BB161B1946AF2D00E5CE82 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		64C3F715195A65EE00E46F42 /* BrowseHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrowseHistoryViewController.h; path = iphoneview/BrowseHistoryViewController.h; sourceTree = "<group>"; };
+		64C3F716195A65EE00E46F42 /* BrowseHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrowseHistoryViewController.m; path = iphoneview/BrowseHistoryViewController.m; sourceTree = "<group>"; };
+		64C3F717195A65EE00E46F42 /* BrowseHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BrowseHistoryViewController.xib; path = iphoneview/BrowseHistoryViewController.xib; sourceTree = "<group>"; };
 		64CFFD49195426F900618433 /* GoodsDetailedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailedTableViewCell.h; path = iphoneview/GoodsDetailedTableViewCell.h; sourceTree = "<group>"; };
 		64CFFD4A195426F900618433 /* GoodsDetailedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailedTableViewCell.m; path = iphoneview/GoodsDetailedTableViewCell.m; sourceTree = "<group>"; };
 		64CFFD4B195426F900618433 /* GoodsDetailedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoodsDetailedTableViewCell.xib; path = iphoneview/GoodsDetailedTableViewCell.xib; sourceTree = "<group>"; };
@@ -577,6 +582,9 @@
 				64B07694195827C000AE9887 /* MyAttentionViewController.h */,
 				64B07695195827C000AE9887 /* MyAttentionViewController.m */,
 				64B07696195827C000AE9887 /* MyAttentionViewController.xib */,
+				64C3F715195A65EE00E46F42 /* BrowseHistoryViewController.h */,
+				64C3F716195A65EE00E46F42 /* BrowseHistoryViewController.m */,
+				64C3F717195A65EE00E46F42 /* BrowseHistoryViewController.xib */,
 			);
 			name = iphoneview;
 			sourceTree = "<group>";
@@ -924,6 +932,7 @@
 				64AEDA4B195135F300C8E651 /* ShareSDKiPhoneDefaultShareViewUI.bundle in Resources */,
 				64BB160A1946A00100E5CE82 /* SearchViewController.xib in Resources */,
 				64B29C7A1948223500AC5FAB /* GoodsViewController.xib in Resources */,
+				64C3F719195A65EE00E46F42 /* BrowseHistoryViewController.xib in Resources */,
 				64B07698195827C000AE9887 /* MyAttentionViewController.xib in Resources */,
 				64AEDA3B195135F300C8E651 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				64AEDA33195135F300C8E651 /* Resource.bundle in Resources */,
@@ -962,6 +971,7 @@
 				64B29C791948223500AC5FAB /* GoodsViewController.m in Sources */,
 				64AF25FE1949A182009572E5 /* DataParseTool.m in Sources */,
 				64588CD6194EFBEC008C9561 /* ProductInfoViewController.m in Sources */,
+				64C3F718195A65EE00E46F42 /* BrowseHistoryViewController.m in Sources */,
 				64B07697195827C000AE9887 /* MyAttentionViewController.m in Sources */,
 				6451329E1945A2B3002A0B1B /* AppDelegate.m in Sources */,
 				648270EB195284DF005B057C /* LoginViewControllerTM.m in Sources */,

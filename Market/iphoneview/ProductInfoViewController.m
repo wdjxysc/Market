@@ -91,16 +91,13 @@
     UIButton *shareBtn = [[UIButton alloc]initWithFrame:CGRectMake(280, 31, 22, 18)];
     [shareBtn setBackgroundImage:[UIImage imageNamed:@"btn_share"] forState:UIControlStateNormal];
     [shareBtn addTarget:self action:@selector(shareBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-    
     [self.view addSubview:shareBtn];
     
     //关注按钮
     UIButton *collectBtn = [[UIButton alloc]initWithFrame:CGRectMake(240, 31, 22, 18)];
     [collectBtn setBackgroundImage:[UIImage imageNamed:@"btn_collect"] forState:UIControlStateNormal];
     [collectBtn addTarget:self action:@selector(collectBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-    
     [self.view addSubview:collectBtn];
-    
 }
 
 -(void)backToMainViewController
@@ -146,7 +143,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         //从服务器获取商品列表
-        NSArray *result = [ServerConnect addProductAttention:[[_productInfoDic valueForKey:@"PRODUCT_ID"] intValue] merchant_id:1 authkey:@"dasd"];
+        NSArray *result = [ServerConnect addProductAttention:[[_productInfoDic valueForKey:@"PRODUCT_ID"] intValue] merchant_id:1 authkey:[[MySingleton sharedSingleton].nowuserinfo valueForKey:@"AuthKey"]];
         BOOL b;
         if(result.count != 0)
         {

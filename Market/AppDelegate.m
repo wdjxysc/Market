@@ -31,18 +31,18 @@
     /*代码操作*/
     if(iPhone5){
         //        self.lunchViewControllerTM = [[LunchViewControllerTM alloc]initWithNibName:@"LunchViewControllerTM_4Inch" bundle:nil];
-        self.loginViewController = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
-//        self.loginViewControllerTM = [[LoginViewControllerTM alloc]initWithNibName:@"LoginViewControllerTM" bundle:nil];
+//        self.loginViewController = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+        self.loginViewControllerTM = [[LoginViewControllerTM alloc]initWithNibName:@"LoginViewControllerTM" bundle:nil];
     }
     else
     {
         //        self.lunchViewControllerTM = [[LunchViewControllerTM alloc]initWithNibName:@"LunchViewControllerTM" bundle:nil];
-        self.loginViewController = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
-//        self.loginViewControllerTM = [[LoginViewControllerTM alloc]initWithNibName:@"LoginViewControllerTM" bundle:nil];
+//        self.loginViewController = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+        self.loginViewControllerTM = [[LoginViewControllerTM alloc]initWithNibName:@"LoginViewControllerTM" bundle:nil];
     }
     //    self.window.rootViewController = self.lunchViewControllerTM;
-    self.window.rootViewController = self.loginViewController;
-//    self.window.rootViewController = self.loginViewControllerTM;
+//    self.window.rootViewController = self.loginViewController;
+    self.window.rootViewController = self.loginViewControllerTM;
     [self.window makeKeyAndVisible];
     return YES;
 }

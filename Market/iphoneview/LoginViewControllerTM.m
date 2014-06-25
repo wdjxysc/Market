@@ -12,6 +12,10 @@
 #import "SVProgressHUD.h"
 #import "RegistEmailViewControllerTM.h"
 #import "ChangPasswordViewController.h"
+#import "MainViewController.h"
+#import "SearchViewController.h"
+#import "UserViewController.h"
+#import "PostViewController.h"
 
 //#import "APService.h"
 
@@ -55,10 +59,10 @@
     [self initApp];
     [self initMyView];
 }
+
 -(void)viewWillDisappear:(BOOL)animated
 {
-    NSThread *thread = [[NSThread alloc]initWithTarget:self selector:@selector(getUserLatelyData) object:nil];
-    [thread start];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -135,29 +139,27 @@
 {
     NSString *username = usernameLoginTextField.text;
     NSString *password = passwordLoginTextField.text;
-    NSString *urlLogin = [[NSString alloc]initWithFormat:@"http://www.ebelter.com/service/ehealth_userLogin?username=%@&pwd=%@&dtype=18",username,password];
+    NSString *urlLogin = [[NSString alloc]initWithFormat:@"http://test.ebelter.com/service/ehealth_userLogin?username=%@&pwd=%@&dtype=18",username,password];
     
     NSString *res = [ServerConnect Login:urlLogin];
     if([res isEqualToString:@"0"])
     {
         //登陆成功
         [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"LOGIN_SUCCESS", nil)];
-        //        [SVProgressHUD showSuccessWithStatus:@"登录成功"];
         [[MySingleton sharedSingleton].nowuserinfo setValue:username forKey:@"UserName"];
         
-//        //极光推送设置别名
-//        [APService setTags:[NSSet setWithObjects:@"wangdj",@"tag5",@"tag6",nil] alias:@"username" callbackSelector:@selector(tagsAliasCallback:tags:alias:) target:self];
+        loginBtn.enabled = true;
+        //跳转界面
+        [self showMainView];
         
         
-        
-        [self presentViewController:_tabBarController animated:NO completion:^{//备注2
-            NSLog(@"show InfoView!");
-            loginBtn.enabled = true;
-        }];
+//        [self presentViewController:_tabBarController animated:NO completion:^{//备注2
+//            NSLog(@"show InfoView!");
+//            loginBtn.enabled = true;
+//        }];
     }
     else
     {
-        //        [SVProgressHUD showErrorWithStatus:@"登录失败"];
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"LOGIN_FAILED", nil)];
     }
     
@@ -166,10 +168,6 @@
     _forgetPassword.enabled = true;
 }
 
--(void)getUserLatelyData
-{
-    
-}
 
 -(IBAction)goregistBtnPressed:(id)sender
 {
@@ -223,8 +221,8 @@
     
     [_registBtn setTitle:NSLocalizedString(@"REGIST", nil) forState:UIControlStateNormal];
     [_forgetPassword setTitle:NSLocalizedString(@"FOGET_PASSWORD", nil) forState:UIControlStateNormal]; /*@"忘记密码"*/
-    [_registBtn setBackgroundImage:[UIImage imageNamed:@"TM_按钮按下"] forState:UIControlStateHighlighted];
-    [loginBtn setBackgroundImage:[UIImage imageNamed:@"TM_按钮按下"] forState:UIControlStateHighlighted];
+    [_registBtn setBackgroundImage:[UIImage imageNamed:@"btn_down"] forState:UIControlStateHighlighted];
+    [loginBtn setBackgroundImage:[UIImage imageNamed:@"btn_down"] forState:UIControlStateHighlighted];
     
     //    [loginBtn setTitle:NSLocalizedString(@"登录", nil) forState:UIControlStateNormal];
     //
@@ -259,5 +257,101 @@
                                                  nil];
     
     NSLog(@"MySingleton AuthKey = %@", [[MySingleton sharedSingleton].nowuserinfo valueForKey:@"AuthKey"]);
+}
+
+-(void)showMainView
+{
+    MainViewController *mainViewController = [[MainViewController alloc]initWithNibName:@"MainViewController" bundle:nil];
+    SearchViewController *searchViewController = [[SearchViewController alloc]initWithNibName:@"SearchViewController" bundle:nil];
+    UserViewController *userViewController = [[UserViewController alloc]initWithNibName:@"UserViewController" bundle:nil];
+    PostViewController *postViewController = [[PostViewController alloc]initWithNibName:@"PostViewController" bundle:nil];
+    
+    UINavigationController *mainViewNaviController = [[UINavigationController alloc]initWithRootViewController:mainViewController];
+    [mainViewNaviController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navibar_bg"] forBarMetrics:UIBarMetricsDefault];
+    [mainViewNaviController.navigationBar
+     setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                             [UIColor whiteColor],
+                             UITextAttributeTextColor,[UIColor colorWithRed:0 green:0.7 blue:0.8 alpha:1],
+                             UITextAttributeTextShadowColor,[NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+                             UITextAttributeTextShadowOffset,[UIFont fontWithName:@"Arial-Bold" size:0.0],
+                             UITextAttributeFont,nil]];
+    mainViewNaviController.navigationBarHidden = YES;
+    
+    //        [measureViewController.navigationItem.leftBarButtonItem setBackgroundImage:@"History" forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
+    mainViewNaviController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    UINavigationController *searchViewNaviController = [[UINavigationController alloc]initWithRootViewController:searchViewController];
+    [searchViewNaviController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navibar_bg"] forBarMetrics:UIBarMetricsDefault];
+    [searchViewNaviController.navigationBar
+     setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                             [UIColor whiteColor],
+                             UITextAttributeTextColor,
+                             [UIColor colorWithRed:0 green:0.7 blue:0.8 alpha:1],
+                             UITextAttributeTextShadowColor,
+                             [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+                             UITextAttributeTextShadowOffset,
+                             [UIFont fontWithName:@"Arial-Bold" size:0.0],
+                             UITextAttributeFont,nil]];
+    searchViewNaviController.navigationBarHidden = YES;
+    
+    //        [measureViewController.navigationItem.leftBarButtonItem setBackgroundImage:@"History" forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
+    searchViewNaviController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    UINavigationController *userViewNaviController = [[UINavigationController alloc]initWithRootViewController:userViewController];
+    [userViewNaviController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navibar_bg"] forBarMetrics:UIBarMetricsDefault];
+    [userViewNaviController.navigationBar
+     setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                             [UIColor whiteColor],
+                             UITextAttributeTextColor,[UIColor colorWithRed:0 green:0.7 blue:0.8 alpha:1],
+                             UITextAttributeTextShadowColor,[NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+                             UITextAttributeTextShadowOffset,[UIFont fontWithName:@"Arial-Bold" size:0.0],
+                             UITextAttributeFont,nil]];
+    userViewNaviController.navigationBarHidden = YES;
+    //        [measureViewController.navigationItem.leftBarButtonItem setBackgroundImage:@"History" forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
+    userViewNaviController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    UINavigationController *postViewNaviController = [[UINavigationController alloc]initWithRootViewController:postViewController];
+    [postViewNaviController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navibar_bg"] forBarMetrics:UIBarMetricsDefault];
+    [postViewNaviController.navigationBar
+     setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                             [UIColor whiteColor],
+                             UITextAttributeTextColor,[UIColor colorWithRed:0 green:0.7 blue:0.8 alpha:1],
+                             UITextAttributeTextShadowColor,[NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+                             UITextAttributeTextShadowOffset,[UIFont fontWithName:@"Arial-Bold" size:0.0],
+                             UITextAttributeFont,nil]];
+    postViewNaviController.navigationBarHidden = YES;
+    //        [measureViewController.navigationItem.leftBarButtonItem setBackgroundImage:@"History" forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
+    postViewNaviController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    //在首页navigation上添加logo图片
+    CGFloat topLogoImageViewy=34.0;
+    if([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0)
+    {
+        topLogoImageViewy = 34.0;
+    }
+    else if([[[UIDevice currentDevice] systemVersion] floatValue]<7.0)
+    {
+        topLogoImageViewy = 14.0;
+    }
+    UIImageView *topLogoImageView = [[UIImageView alloc]initWithFrame:CGRectMake((Screen_width-143)/2, topLogoImageViewy, 143.0, 16.0)];
+    [topLogoImageView setImage:[UIImage imageNamed:@"logo"]];
+    //    [mainViewNaviController.view addSubview:topLogoImageView];
+    
+    
+    //tabbar
+    UITabBarController *tabBarController = [[UITabBarController alloc]init];
+    [tabBarController setViewControllers:[[NSArray alloc] initWithObjects:mainViewNaviController,searchViewNaviController,userViewNaviController,postViewNaviController, nil]];
+    //    [tabBarController setViewControllers:[[NSArray alloc] initWithObjects:mainViewController,searchViewController,userViewController,postViewController, nil]];
+    [tabBarController.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
+    tabBarController.tabBar.backgroundColor = [UIColor clearColor];
+    tabBarController.tabBar.selectionIndicatorImage = [UIImage imageNamed:@"tabitem_down_bg"];
+    [tabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
+    //    [tabBarController.tabBar setTintColor:[UIColor redColor]];
+    
+    
+    
+    [self presentViewController:tabBarController animated:NO completion:^{//备注2
+        NSLog(@"show InfoView!");
+    }];
 }
 @end
