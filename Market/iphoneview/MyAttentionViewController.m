@@ -252,4 +252,8 @@
 //    [self.navigationController pushViewController:productInfoViewController animated:YES];
 }
 
+-(void)passValue:(NSDictionary *)value
+{
+    _infodic = value;
+}
 @end

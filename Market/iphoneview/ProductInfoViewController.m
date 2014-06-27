@@ -95,8 +95,8 @@
     
     //关注按钮
     UIButton *collectBtn = [[UIButton alloc]initWithFrame:CGRectMake(240, 31, 22, 18)];
-    [collectBtn setBackgroundImage:[UIImage imageNamed:@"btn_collect"] forState:UIControlStateNormal];
-    [collectBtn addTarget:self action:@selector(collectBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+    [collectBtn setBackgroundImage:[UIImage imageNamed:@"btn_collect_white"] forState:UIControlStateNormal];
+    [collectBtn addTarget:self action:@selector(collectBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:collectBtn];
 }
 
@@ -137,7 +137,7 @@
                             }];
 }
 
--(void)collectBtnPressed
+-(IBAction)collectBtnPressed:(id)sender
 {
     //关注商品
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -157,6 +157,7 @@
             {
                 b = true;
                 NSLog(@"关注成功");
+                [(UIButton *)sender setBackgroundImage:[UIImage imageNamed:@"btn_collect_red"] forState:UIControlStateNormal];
             }
             else if(res == 2)
             {

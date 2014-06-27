@@ -145,6 +145,8 @@
 		64BB16171946AEE400E5CE82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64BB16191946AEE400E5CE82 /* Localizable.strings */; };
 		64C3F718195A65EE00E46F42 /* BrowseHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C3F716195A65EE00E46F42 /* BrowseHistoryViewController.m */; };
 		64C3F719195A65EE00E46F42 /* BrowseHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3F717195A65EE00E46F42 /* BrowseHistoryViewController.xib */; };
+		64C3F73C195AB3A400E46F42 /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C3F71D195AB3A400E46F42 /* libBaiduMobStat.a */; };
+		64C3F74D195ABBF100E46F42 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C3F74B195ABBF100E46F42 /* CJSONSerializer.m */; };
 		64CFFD4C195426F900618433 /* GoodsDetailedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CFFD4A195426F900618433 /* GoodsDetailedTableViewCell.m */; };
 		64CFFD4D195426F900618433 /* GoodsDetailedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64CFFD4B195426F900618433 /* GoodsDetailedTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -338,6 +340,11 @@
 		64C3F715195A65EE00E46F42 /* BrowseHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrowseHistoryViewController.h; path = iphoneview/BrowseHistoryViewController.h; sourceTree = "<group>"; };
 		64C3F716195A65EE00E46F42 /* BrowseHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrowseHistoryViewController.m; path = iphoneview/BrowseHistoryViewController.m; sourceTree = "<group>"; };
 		64C3F717195A65EE00E46F42 /* BrowseHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BrowseHistoryViewController.xib; path = iphoneview/BrowseHistoryViewController.xib; sourceTree = "<group>"; };
+		64C3F71C195AB3A400E46F42 /* BaiduMobStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobStat.h; sourceTree = "<group>"; };
+		64C3F71D195AB3A400E46F42 /* libBaiduMobStat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBaiduMobStat.a; sourceTree = "<group>"; };
+		64C3F74A195ABBF100E46F42 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
+		64C3F74B195ABBF100E46F42 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
+		64C3F74C195ABBF100E46F42 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
 		64CFFD49195426F900618433 /* GoodsDetailedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailedTableViewCell.h; path = iphoneview/GoodsDetailedTableViewCell.h; sourceTree = "<group>"; };
 		64CFFD4A195426F900618433 /* GoodsDetailedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailedTableViewCell.m; path = iphoneview/GoodsDetailedTableViewCell.m; sourceTree = "<group>"; };
 		64CFFD4B195426F900618433 /* GoodsDetailedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoodsDetailedTableViewCell.xib; path = iphoneview/GoodsDetailedTableViewCell.xib; sourceTree = "<group>"; };
@@ -406,6 +413,7 @@
 				64AEDA26195135F300C8E651 /* SMSConnection.framework in Frameworks */,
 				64AEDA24195135F300C8E651 /* RenRenConnection.framework in Frameworks */,
 				64AEDA27195135F300C8E651 /* SohuConnection.framework in Frameworks */,
+				64C3F73C195AB3A400E46F42 /* libBaiduMobStat.a in Frameworks */,
 				64AEDA37195135F300C8E651 /* GooglePlus.framework in Frameworks */,
 				64AEDA14195135F200C8E651 /* DropboxConnection.framework in Frameworks */,
 				6451328E1945A2B3002A0B1B /* Foundation.framework in Frameworks */,
@@ -434,6 +442,7 @@
 		645132811945A2B3002A0B1B = {
 			isa = PBXGroup;
 			children = (
+				64C3F71A195AB3A400E46F42 /* BaiduMobStat */,
 				64AED9BE195135F200C8E651 /* ShareSDK */,
 				645132931945A2B3002A0B1B /* Market */,
 				645132B21945A2B4002A0B1B /* MarketTests */,
@@ -824,6 +833,34 @@
 			name = myclass;
 			sourceTree = "<group>";
 		};
+		64C3F71A195AB3A400E46F42 /* BaiduMobStat */ = {
+			isa = PBXGroup;
+			children = (
+				64C3F749195ABBF100E46F42 /* TouchJSON */,
+				64C3F71B195AB3A400E46F42 /* Release-iphoneos */,
+			);
+			path = BaiduMobStat;
+			sourceTree = "<group>";
+		};
+		64C3F71B195AB3A400E46F42 /* Release-iphoneos */ = {
+			isa = PBXGroup;
+			children = (
+				64C3F71C195AB3A400E46F42 /* BaiduMobStat.h */,
+				64C3F71D195AB3A400E46F42 /* libBaiduMobStat.a */,
+			);
+			path = "Release-iphoneos";
+			sourceTree = "<group>";
+		};
+		64C3F749195ABBF100E46F42 /* TouchJSON */ = {
+			isa = PBXGroup;
+			children = (
+				64C3F74A195ABBF100E46F42 /* CJSONSerializer.h */,
+				64C3F74B195ABBF100E46F42 /* CJSONSerializer.m */,
+				64C3F74C195ABBF100E46F42 /* JSONRepresentation.h */,
+			);
+			path = TouchJSON;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -985,6 +1022,7 @@
 				645132C51945A6DE002A0B1B /* MainViewController.m in Sources */,
 				64588CD1194EDE24008C9561 /* SVProgressHUD.m in Sources */,
 				64CFFD4C195426F900618433 /* GoodsDetailedTableViewCell.m in Sources */,
+				64C3F74D195ABBF100E46F42 /* CJSONSerializer.m in Sources */,
 				64BB16091946A00100E5CE82 /* SearchViewController.m in Sources */,
 				64BB160419469F8D00E5CE82 /* LoginViewController.m in Sources */,
 			);
@@ -1156,6 +1194,9 @@
 					"$(PROJECT_DIR)/ShareSDK/Extend/TencentWeiboSDK",
 					"$(PROJECT_DIR)/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/ShareSDK/Extend/YiXinSDK",
+					"$(PROJECT_DIR)/BaiduMobStat/Release-iphoneos",
+					"$(PROJECT_DIR)/BaiduMobStat/Release-iphonesimulator",
+					"$(PROJECT_DIR)/BaiduMobStat/universal-bin",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1194,6 +1235,9 @@
 					"$(PROJECT_DIR)/ShareSDK/Extend/TencentWeiboSDK",
 					"$(PROJECT_DIR)/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/ShareSDK/Extend/YiXinSDK",
+					"$(PROJECT_DIR)/BaiduMobStat/Release-iphoneos",
+					"$(PROJECT_DIR)/BaiduMobStat/Release-iphonesimulator",
+					"$(PROJECT_DIR)/BaiduMobStat/universal-bin",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";

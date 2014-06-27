@@ -18,6 +18,7 @@
 {
     // Initialization code
     [self setBackgroundColor:[UIColor clearColor]];
+    [_lineBtn setBackgroundColor:[UIColor colorWithRed:0xc5/255.0 green:0xc5/255.0 blue:0xc5/255.0 alpha:1.0]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

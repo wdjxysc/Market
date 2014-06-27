@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController<UIScrollViewDelegate>
+
+@property(retain,nonatomic)UIScrollView *scrollView;
+
+
+@property(retain,nonatomic)UIButton *btn1;
+@property(retain,nonatomic)UIButton *btn2;
+@property(retain,nonatomic)UIButton *btn3;
 
 @end

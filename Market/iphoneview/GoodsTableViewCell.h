@@ -15,6 +15,7 @@
     IBOutlet UILabel *productDescriptionLabel;
     IBOutlet UILabel *productNameLabel;
 }
+@property (weak, nonatomic) IBOutlet UIButton *lineBtn;
 
 @property(retain,nonatomic)UIImageView *imageProduct;
 @property(retain,nonatomic)UIButton *linkBtn;

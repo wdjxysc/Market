@@ -43,7 +43,6 @@ static NSData *kTrue = NULL;
     {
     if (self == [CJSONSerializer class])
         {
-        NSAutoreleasePool *thePool = [[NSAutoreleasePool alloc] init];
 
         if (kNULL == NULL)
             kNULL = [[NSData alloc] initWithBytesNoCopy:(void *)"null" length:4 freeWhenDone:NO];
@@ -52,13 +51,12 @@ static NSData *kTrue = NULL;
         if (kTrue == NULL)
             kTrue = [[NSData alloc] initWithBytesNoCopy:(void *)"true" length:4 freeWhenDone:NO];
 
-        [thePool release];
         }
     }
 
 + (CJSONSerializer *)serializer
     {
-    return([[[self alloc] init] autorelease]);
+    return([[self alloc] init] );
     }
     
 - (BOOL)isValidJSONObject:(id)inObject
@@ -123,7 +121,7 @@ static NSData *kTrue = NULL;
         }
     else if ([inObject isKindOfClass:[NSData class]])
         {
-        NSString *theString = [[[NSString alloc] initWithData:inObject encoding:NSUTF8StringEncoding] autorelease];
+        NSString *theString = [[NSString alloc] initWithData:inObject encoding:NSUTF8StringEncoding] ;
         theResult = [self serializeString:theString error:outError];
         }
     else if ([inObject respondsToSelector:@selector(JSONDataRepresentation)])
@@ -206,7 +204,7 @@ static NSData *kTrue = NULL;
 
     NSMutableData *theData = [NSMutableData dataWithLength:strlen(theUTF8String) * 2 + 2];
 
-    char *theOutputStart = [theData mutableBytes];
+    char *theOutputStart = (char *)[theData mutableBytes];
     char *OUT = theOutputStart;
 
     *OUT++ = '"';

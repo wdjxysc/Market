@@ -9,19 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "UIViewPassValueDelegate.h"
 
-@protocol UIViewTestDelegate;
-
 @interface ProductInfoViewController : UIViewController<UIViewPassValueDelegate,UIWebViewDelegate>
 {
     
 }
 
 @property(retain,nonatomic)NSDictionary *productInfoDic;
-@end
-
-
-@protocol UIViewTestDelegate <NSObject>
-
--(void)test;
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIViewPassValueDelegate.h"
 
-@interface MyAttentionViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface MyAttentionViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIViewPassValueDelegate>
 
 @property(retain,nonatomic) UITableView *tableView;
 
@@ -17,6 +17,7 @@
 
 @property(retain,nonatomic) NSMutableArray *dataArray;
 
+@property(retain,nonatomic) NSDictionary *infodic;
 
 @property(retain,nonatomic)NSObject<UIViewPassValueDelegate> *passValueDelegate;
 @end

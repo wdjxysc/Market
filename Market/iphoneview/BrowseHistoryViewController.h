@@ -10,4 +10,6 @@
 
 @interface BrowseHistoryViewController : UIViewController
 
+@property(retain,nonatomic)NSMutableArray *dataArray;
+
 @end
